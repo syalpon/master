@@ -1,17 +1,21 @@
-namespace main_frame{
+using System.Collections.Generic;
 
+namespace main_frame{
+	
 	class Initializer{
+		/* メイン関数 */
 		public static void Main(){
 			Character player1 = new Character();
+			player1.name = "player1";
 			player1.show();
-			//player1.exp += 500;
-			//player1.show();
-			//player1.level += 1;
-			//player1.damage = 10;
-			//player1.show();
+			player1.exp += 500;
+			player1.show();
+			player1.level += 1;
+			player1.damage = 10;
+			player1.show();
 			Map map1 = new Map();
-			//map1.show();
-			
+			map1.add_char(player1);
+			map1.show_char_list();
 		}
 	}
 	
@@ -27,8 +31,12 @@ namespace main_frame{
 		private	int		_max_mp;
 		private	int 	_mp;
 		private	int 	_min_mp;
-		private int 	_location_x;
-		private int 	_location_y;
+		
+		/* 名前プロパティ */
+		public string name{
+			set{ _name = value; }
+			get{ return _name; }
+		}
 		
 		/* 経験値プロパティー */
 		public int exp{
@@ -40,6 +48,7 @@ namespace main_frame{
 			}
 			get{return _exp;}
 		}
+		
 		/* レベルアッププロパティ */
 		public int level{
 			set{ 
@@ -54,6 +63,7 @@ namespace main_frame{
 			}
 			get{ return _level; }
 		}
+		
 		/* HPプロパティ */
 		public int hp{
 			set{
@@ -66,7 +76,6 @@ namespace main_frame{
 			}
 			get{return _hp;}
 		}
-		
 		
 		/* ダメージプロパティ */
 		public int damage{
@@ -81,9 +90,21 @@ namespace main_frame{
 			get{return 0;}
 		}
 		
+		/* 魔法プロパティ */
+		public int use_magic{
+			set{
+				if( value > _mp ){
+					_mp = _min_mp;
+				}else{
+					_mp -= value;
+				}
+			}
+			get{return _mp;}
+		}
+		
 		/* コンストラクタ */
 		public Character(){
-			_name 	= "hogehoge";
+			_name 	= "player";
 			_age	= 20;
 			_level	= 1;
 			_max_hp	= 10;
@@ -92,10 +113,9 @@ namespace main_frame{
 			_max_mp	= 50;
 			_mp 	= _max_mp;
 			_min_mp = 0;
-		 	_location_x = 0;
-		 	_location_y = 0;
 		}
 		
+		/* ステータス表示 */
 		public void show(){
 			System.Console.WriteLine("------------------------------------");
 			System.Console.WriteLine("名前 : " + _name );
@@ -107,25 +127,51 @@ namespace main_frame{
 		}
 	}
 	
+	/* 二次元ベクトル */
+	struct Vector{
+		public int x;
+		public int y;
+	}
+	
 	class Map{
-		private int _x_size;
-		private int _y_size;
+		/* map size */
+		private Vector _Size;
 		
+		/* マップにいるキャラリスト */
+		private Dictionary <Character ,Vector> _List;
 		
 		/* コンストラクタ */
 		public Map(){
-			_x_size = 20;
-			_y_size = 10;
+			_Size = new Vector(){ x=1 , y=1 };
+			_List = new Dictionary <Character ,Vector>();
 		}
 		
+		/* キャラ情報追加 : 座標なし */
+		public void add_char(Character c){
+			add_char( c , 0 , 0 );
+		}
+		
+		/* キャラ情報追加 : 座標あり */
+		public void add_char(Character c , int X , int Y ){
+			_List.Add( c , new Vector{ x=X , y=Y } );
+		}
+		
+		/* マップ表示 */
 		public void show(){
-			for(int j = 0 ; j<_y_size ; j++){
-				for(int i = 0 ; i<_x_size ; i++){
+			for( int j = 0 ; j< _Size.y ; j++ ){
+				for( int i = 0 ; i< _Size.x ; i++ ){
 					System.Console.Write("□");
 				}
 				System.Console.Write("\n");
 			}
 			System.Console.Write("\n");
+		}
+		
+		/* キャラリスト表示 */
+		public void show_char_list(){
+			foreach( KeyValuePair<Character , Vector> item in _List){
+				System.Console.WriteLine("[ {0} : (x,y) = ({1},{2})]", item.Key.name , item.Value.x , item.Value.y );
+			}
 		}
 	}
 }
