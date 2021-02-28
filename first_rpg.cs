@@ -14,7 +14,7 @@ namespace main_frame{
 			player1.damage = 10;
 			player1.show();
 			Map map1 = new Map();
-			map1.add_char(player1);
+			map1.add_char(player1,10,20);
 			map1.show_char_list();
 		}
 	}
@@ -24,11 +24,11 @@ namespace main_frame{
 		private string 	_name;
 		private int 	_age;
 		private int 	_level;
-		private int		_exp;
-		private	int		_max_hp;
-		private	int		_hp;
-		private	int		_min_hp;
-		private	int		_max_mp;
+		private int 	_exp;
+		private	int 	_max_hp;
+		private	int 	_hp;
+		private	int 	_min_hp;
+		private	int 	_max_mp;
 		private	int 	_mp;
 		private	int 	_min_mp;
 		
