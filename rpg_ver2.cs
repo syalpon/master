@@ -7,7 +7,11 @@ namespace main_frame{
 		/* メイン関数 */
 		public static void Main(){
 			Status p = new Status();
-			p.hp.Show("hp");
+			p.Show();
+			p.ex.now += 60;
+			p.ex.now += 60;
+			p.hp.now += 10;
+			p.Show();
 		}
 	}
 	
@@ -46,12 +50,34 @@ namespace main_frame{
 			get{return _min;}
 		}
 		
-		/* コンストラクタ */
+		/*------------- 以下コンストラクタ -------------*/
+		/* デフォルトコンストラクタ */
 		public Parameter(){
-			_max = 100;
-			_now = 100;
-			_min = 0;
+			_max	= 100;
+			_now	= 100;
+			_min	= 0;
 		}
+		
+		/* 1引数コンストラクタ */
+		public Parameter( int top ){
+			_max	= top;
+			_now	= top;
+			_min	= 0;
+		}
+		
+		/* 2引数コンストラクタ */
+		public Parameter( int top , int bot ){
+			_max	= top;
+			_now	= top;
+			_min	= bot;
+		}
+		/* 3引数コンストラクタ */
+		public Parameter( int top , int mid , int bot ){
+			_max	= top;
+			_now	= mid;
+			_min	= bot;
+		}
+		/*------------- 以上コンストラクタ -------------*/
 		
 		/* 仮想メソッド */
 		protected virtual void Max_Update(int v){
@@ -95,23 +121,71 @@ namespace main_frame{
 			now = min;
 			Game_Event.Game_Over();
 		}
-		
-		/* 表示メソッド */
-		public void Show(){
-			
+		protected override void Max_Over(int v){
+			now = max;
 		}
 		
-		
+		/* 表示メソッド */
+		public void Show(){base.Show("HP");}
 	}
 	
 	
 	
+	/* 魔力クラス */
 	class Mp : Parameter{
 		public void Magic(){
 			now -= 10;
 			System.Console.Write("\t[魔法名] : \n");
 		}
+		/* 表示メソッド */
+		public void Show(){base.Show("MP");}
 	}
+	
+	
+	
+	/* 経験値クラス */
+	class Ex : Parameter{
+		public Lv lvp;
+		public Ex(ref Lv lv):base(100,0,0){lvp = lv;}
+		
+		/* レベルアップ */
+		public void LevelUp(Lv lv){Max_Over(0);}
+		
+		/* レベルアップ処理 */
+		protected override void Max_Over(int v){
+			now -= max;
+			lvp.now++;
+		}
+		
+		/* 表示メソッド */
+		public void Show(){
+			base.Show("Ex");
+		}		
+	}
+	
+	
+	
+	/* レベルクラス */
+	class Lv : Parameter {
+		public Hp hpp;
+		public Mp mpp;
+		public Lv(ref Hp hp,ref Mp mp):base(999,1,1){
+			hpp = hp;
+			mpp = mp;
+		}
+		
+		/* レベルアップ */
+		protected override void Max_Over(int v){
+			now++;
+			hpp.max += 10;
+			mpp.max += 50;
+		}
+		
+		/* 表示メソッド */
+		public void Show(){
+			base.Show("Lv");
+		}
+	}	
 	
 	
 	
@@ -119,11 +193,26 @@ namespace main_frame{
 	class Status{
 		public Hp hp;
 		public Mp mp;
+		public Ex ex;
+		public Lv lv;
+		
+		/* コンストラクタ */
 		public Status(){
 			hp = new Hp();
 			mp = new Mp();
+			lv = new Lv(ref hp,ref mp);
+			ex = new Ex(ref lv);
 		}
-	}	
+		
+		/* 表示 */
+		public void Show(){
+			hp.Show();
+			mp.Show();
+			ex.Show();
+			lv.Show();
+		}
+		
+	}
 }
 
 
