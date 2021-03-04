@@ -114,6 +114,13 @@ namespace main_frame{
 				_now = v;
 			}
 		}
+		
+		/* 演算子のオーバーライド(加減乗除) */
+		public static Hp operator+ (Hp x , int y) {x.now += y;return x;}
+		public static Hp operator- (Hp x , int y) {x.now -= y;return x;}
+		public static Hp operator* (Hp x , int y) {x.now *= y;return x;}
+		public static Hp operator/ (Hp x , int y) {x.now /= y;return x;}
+		
 		/* 表示メソッド */
 		public void Show(){base.Show("HP");}
 	}
@@ -136,6 +143,12 @@ namespace main_frame{
 				_now = v;
 			}
 		}
+		
+		/* 演算子のオーバーライド(加減乗除) */
+		public static Mp operator+ (Mp x , int y) {x.now += y;return x;}
+		public static Mp operator- (Mp x , int y) {x.now -= y;return x;}
+		public static Mp operator* (Mp x , int y) {x.now *= y;return x;}
+		public static Mp operator/ (Mp x , int y) {x.now /= y;return x;}
 		
 		/* 表示メソッド */
 		public void Show(){base.Show("MP");}
@@ -172,22 +185,10 @@ namespace main_frame{
 			}
 		}
 		/* 演算子のオーバーライド(加減乗除) */
-		public static Ex operator+ (Ex x , int y) {
-			x.now += y;
-			return x;
-		}
-		public static Ex operator- (Ex x , int y) {
-		x.now -= y;
-			return x;
-		}
-		public static Ex operator* (Ex x , int y) {
-			x.now *= y;
-			return x;
-		}
-		public static Ex operator/ (Ex x , int y) {
-			x.now /= y;
-			return x;
-		}
+		public static Ex operator+ (Ex x , int y) {x.now += y;return x;}
+		public static Ex operator- (Ex x , int y) {x.now -= y;return x;}
+		public static Ex operator* (Ex x , int y) {x.now *= y;return x;}
+		public static Ex operator/ (Ex x , int y) {x.now /= y;return x;}
 		
 		/* 表示メソッド */
 		public void Show(){
