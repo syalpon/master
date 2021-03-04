@@ -2,14 +2,15 @@ using System.Collections.Generic;
 
 namespace main_frame{
 	
+	/*------------*/
 	/* 初期クラス */
+	/*------------*/
 	class Initializer{
 		/* メイン関数 */
 		public static void Main(){
 			Status p = new Status();
 			p.Show();
-			p.ex.now += 60;
-			p.ex.now += 60;
+			p.ex += 160;
 			p.hp.now += 10;
 			p.Show();
 		}
@@ -17,8 +18,11 @@ namespace main_frame{
 	
 	
 	
-	/* イベントクラス */
-	class Game_Event{
+	/*--------------*/
+	/* ゲームクラス */
+	/*--------------*/
+	class Game{
+		/* ゲームオーバー時処理 */
 		public static void Game_Over(){
 			System.Console.Write("\t力尽きた。\n\t目の前が真っ白になった。\n");
 		}
@@ -26,12 +30,14 @@ namespace main_frame{
 	
 	
 	
+	/*--------------------*/
 	/* パラメータークラス */
+	/*--------------------*/
 	class Parameter{
 		/* フィールド */
-		private int _max;
-		private int _now;
-		private int _min;
+		protected int _max;
+		protected int _now;
+		protected int _min;
 		
 		
 		/* プロパティ */
@@ -51,28 +57,10 @@ namespace main_frame{
 		}
 		
 		/*------------- 以下コンストラクタ -------------*/
-		/* デフォルトコンストラクタ */
-		public Parameter(){
-			_max	= 100;
-			_now	= 100;
-			_min	= 0;
-		}
-		
-		/* 1引数コンストラクタ */
-		public Parameter( int top ){
-			_max	= top;
-			_now	= top;
-			_min	= 0;
-		}
-		
-		/* 2引数コンストラクタ */
-		public Parameter( int top , int bot ){
-			_max	= top;
-			_now	= top;
-			_min	= bot;
-		}
-		/* 3引数コンストラクタ */
-		public Parameter( int top , int mid , int bot ){
+		public Parameter():this(100,100,0){}									/* デフォルトコンストラクタ */
+		public Parameter(int top):this(top,top,0){}						/* 1引数コンストラクタ */
+		public Parameter(int top,int bot):this(top,top,bot){}	/* 2引数コンストラクタ */
+		public Parameter(int top,int mid,int bot){						/* 3引数コンストラクタ */
 			_max	= top;
 			_now	= mid;
 			_min	= bot;
@@ -103,58 +91,102 @@ namespace main_frame{
 		protected virtual void Max_Over(int v){_now = _max;}
 		protected virtual void Min_Over(int v){_now = _min;}
 		/* 表示 */
-		public virtual void Show(string name){
-			System.Console.Write( "[{0}] : {1}/{2}\n",name,_now,_max);
-		}
+		public virtual void Show(string name){System.Console.Write( "[{0}] : {1}/{2}\n",name,_now,_max);}
 	}
 	
 	
 	
+	/*----------*/
 	/* HPクラス */
+	/*----------*/
 	class Hp : Parameter{
-	
-		/* コンストラクタ */
-		public Hp(){}
 		
 		/* オーバーライドメソッド */
 		protected override void Min_Over(int v){
 			now = min;
-			Game_Event.Game_Over();
-		}
-		protected override void Max_Over(int v){
-			now = max;
+			Game.Game_Over();
 		}
 		
+		protected override void Max_Update(int v){
+			/* 上限が下限を下回らないようにする */
+			if( _min <= v ){
+				_max = v;
+				_now = v;
+			}
+		}
 		/* 表示メソッド */
 		public void Show(){base.Show("HP");}
 	}
 	
 	
-	
+	/*------------*/
 	/* 魔力クラス */
+	/*------------*/
 	class Mp : Parameter{
 		public void Magic(){
 			now -= 10;
 			System.Console.Write("\t[魔法名] : \n");
 		}
+		
+		/* オーバーライドメソッド */
+		protected override void Max_Update(int v){
+			/* 上限が下限を下回らないようにする */
+			if( _min <= v ){
+				_max = v;
+				_now = v;
+			}
+		}
+		
 		/* 表示メソッド */
 		public void Show(){base.Show("MP");}
 	}
 	
 	
 	
+	/*--------------*/
 	/* 経験値クラス */
+	/*--------------*/
 	class Ex : Parameter{
-		public Lv lvp;
-		public Ex(ref Lv lv):base(100,0,0){lvp = lv;}
+		public Lv lv;
+		/* コンストラクタ */
+		public Ex(ref Lv lv):this(ref lv,100,0,0){}
+		public Ex(ref Lv lv,int top):this(ref lv,top,0,0){}
+		public Ex(ref Lv lv,int top,int bot):this(ref lv,top,bot,bot){}
+		public Ex(ref Lv lv,int top,int mid,int bot):base(top,mid,bot){this.lv = lv;}
 		
-		/* レベルアップ */
-		public void LevelUp(Lv lv){Max_Over(0);}
-		
-		/* レベルアップ処理 */
+		/* 経験値が溜まったときの処理処理 */
 		protected override void Max_Over(int v){
-			now -= max;
-			lvp.now++;
+			now = v - max;	/*超過分は持ち越し*/
+			lv.now++;				/*1レベル上げる*/
+		}
+		/* 現在値が最大値になった時レベルアップさせるように修正 */
+		protected override void Mid_Update(int v){
+			if( _min <= v && v < _max ){
+				_now = v;
+			}else if( v < _min ){
+				Min_Over(v);
+			}else if( _max <= v ){
+				Max_Over(v);
+			}else{
+				/* Do nothing */
+			}
+		}
+		/* 演算子のオーバーライド(加減乗除) */
+		public static Ex operator+ (Ex x , int y) {
+			x.now += y;
+			return x;
+		}
+		public static Ex operator- (Ex x , int y) {
+		x.now -= y;
+			return x;
+		}
+		public static Ex operator* (Ex x , int y) {
+			x.now *= y;
+			return x;
+		}
+		public static Ex operator/ (Ex x , int y) {
+			x.now /= y;
+			return x;
 		}
 		
 		/* 表示メソッド */
@@ -164,21 +196,30 @@ namespace main_frame{
 	}
 	
 	
-	
+	/*--------------*/
 	/* レベルクラス */
+	/*--------------*/
 	class Lv : Parameter {
-		public Hp hpp;
-		public Mp mpp;
+		/* インスタンス時の保存用クラス */
+		public Hp hp;
+		public Mp mp;
+		/* 設定値 */
+		public int[] __dhp__ = {10,20,30};		/* レベルアップ時のhp伸びしろテーブル */
+		public int[] __dmp__ = {50,150,300};	/* レベルアップ時のhp伸びしろテーブル */
+		
 		public Lv(ref Hp hp,ref Mp mp):base(999,1,1){
-			hpp = hp;
-			mpp = mp;
+			this.hp = hp;
+			this.mp = mp;
 		}
 		
-		/* レベルアップ */
-		protected override void Max_Over(int v){
-			now++;
-			hpp.max += 10;
-			mpp.max += 50;
+		/* レベルアップ処理(現在レベルが変わった時) */
+		protected override void Mid_Update(int v){
+			if(v > 0){ /* ただの呼び出しやマイナス時は無視 */
+				/* レベルアップ時の表示 */
+				System.Console.Write(" レベルアップ! ({0}Lv→{1}Lv)\n",_now,++_now);
+				hp.max += __dhp__[now/100];
+				mp.max += __dmp__[now/100];
+			}
 		}
 		
 		/* 表示メソッド */
@@ -189,7 +230,9 @@ namespace main_frame{
 	
 	
 	
+	/*------------------*/
 	/* ステータスクラス */
+	/*------------------*/
 	class Status{
 		public Hp hp;
 		public Mp mp;
