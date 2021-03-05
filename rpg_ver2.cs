@@ -161,6 +161,7 @@ namespace main_frame{
 	/*--------------*/
 	class Ex : Parameter{
 		public Lv lv;
+		
 		/* コンストラクタ */
 		public Ex(ref Lv lv):this(ref lv,100,0,0){}
 		public Ex(ref Lv lv,int top):this(ref lv,top,0,0){}
@@ -202,6 +203,7 @@ namespace main_frame{
 		/* インスタンス時の保存用クラス */
 		public Hp hp;
 		public Mp mp;
+		
 		/* 設定値 */
 		public int[] __dhp__ = {10,20,30};		/* レベルアップ時のhp伸びしろテーブル */
 		public int[] __dmp__ = {50,150,300};	/* レベルアップ時のhp伸びしろテーブル */
@@ -255,9 +257,7 @@ namespace main_frame{
 			hp.Show("","\t\t");
 			mp.Show("","\n");
 			System.Console.Write("------------------------------------------\n\n");
-			
 		}
-		
 	}
 }
 
