@@ -11,7 +11,7 @@ namespace main_frame{
 			Status p = new Status();
 			p.Show();
 			p.ex += 160;
-			p.hp.now += 10;
+			p.hp -= 110;
 			p.Show();
 		}
 	}
@@ -24,7 +24,7 @@ namespace main_frame{
 	class Game{
 		/* ゲームオーバー時処理 */
 		public static void Game_Over(){
-			System.Console.Write("\t力尽きた。\n\t目の前が真っ白になった。\n");
+			System.Console.Write("\t>>力尽きた。\n\t>>目の前が真っ白になった。\n");
 		}
 	}
 	
@@ -73,9 +73,9 @@ namespace main_frame{
 			if( _min <= v ){_max = v;}
 		}
 		protected virtual void Mid_Update(int v){
-			if( _min <= v && v <= _max ){
+			if( _min < v && v <= _max ){
 				_now = v;
-			}else if( v < _min ){
+			}else if( v <= _min ){
 				Min_Over(v);
 			}else if( _max < v ){
 				Max_Over(v);
@@ -91,7 +91,7 @@ namespace main_frame{
 		protected virtual void Max_Over(int v){_now = _max;}
 		protected virtual void Min_Over(int v){_now = _min;}
 		/* 表示 */
-		public virtual void Show(string name){System.Console.Write( "[{0}] : {1}/{2}\n",name,_now,_max);}
+		public virtual void Show(string name,string m,string n){System.Console.Write( "{0}[{1}] : {2}/{3}{4}",m,name,_now,_max,n);}
 	}
 	
 	
@@ -103,7 +103,7 @@ namespace main_frame{
 		
 		/* オーバーライドメソッド */
 		protected override void Min_Over(int v){
-			now = min;
+			_now = _min;
 			Game.Game_Over();
 		}
 		
@@ -122,7 +122,7 @@ namespace main_frame{
 		public static Hp operator/ (Hp x , int y) {x.now /= y;return x;}
 		
 		/* 表示メソッド */
-		public void Show(){base.Show("HP");}
+		public void Show(string m,string n){base.Show("HP",m,n);}
 	}
 	
 	
@@ -151,7 +151,7 @@ namespace main_frame{
 		public static Mp operator/ (Mp x , int y) {x.now /= y;return x;}
 		
 		/* 表示メソッド */
-		public void Show(){base.Show("MP");}
+		public void Show(string m,string n){base.Show("MP",m,n);}
 	}
 	
 	
@@ -174,9 +174,9 @@ namespace main_frame{
 		}
 		/* 現在値が最大値になった時レベルアップさせるように修正 */
 		protected override void Mid_Update(int v){
-			if( _min <= v && v < _max ){
+			if( _min < v && v < _max ){
 				_now = v;
-			}else if( v < _min ){
+			}else if( v <= _min ){
 				Min_Over(v);
 			}else if( _max <= v ){
 				Max_Over(v);
@@ -191,9 +191,7 @@ namespace main_frame{
 		public static Ex operator/ (Ex x , int y) {x.now /= y;return x;}
 		
 		/* 表示メソッド */
-		public void Show(){
-			base.Show("Ex");
-		}		
+		public void Show(string m,string n){base.Show("Ex",m,n);}
 	}
 	
 	
@@ -224,9 +222,7 @@ namespace main_frame{
 		}
 		
 		/* 表示メソッド */
-		public void Show(){
-			base.Show("Lv");
-		}
+		public void Show(string m,string n){base.Show("Lv",m,n);}
 	}	
 	
 	
@@ -235,6 +231,8 @@ namespace main_frame{
 	/* ステータスクラス */
 	/*------------------*/
 	class Status{
+		public string name;
+		public int atk;
 		public Hp hp;
 		public Mp mp;
 		public Ex ex;
@@ -242,6 +240,7 @@ namespace main_frame{
 		
 		/* コンストラクタ */
 		public Status(){
+			name = "クマ";
 			hp = new Hp();
 			mp = new Mp();
 			lv = new Lv(ref hp,ref mp);
@@ -250,10 +249,14 @@ namespace main_frame{
 		
 		/* 表示 */
 		public void Show(){
-			hp.Show();
-			mp.Show();
-			ex.Show();
-			lv.Show();
+			System.Console.Write("------------------------------------------\n");
+			System.Console.Write("[name] : {0}\n",name);
+			lv.Show("","\t\t");
+			ex.Show("","\n");
+			hp.Show("","\t\t");
+			mp.Show("","\n");
+			System.Console.Write("------------------------------------------\n\n");
+			
 		}
 		
 	}
