@@ -24,7 +24,7 @@ namespace main_frame{
 	class Game{
 		/* ゲームオーバー時処理 */
 		public static void Game_Over(){
-			System.Console.Write("\t>>力尽きた。\n\t>>目の前が真っ白になった。\n");
+			System.Console.Write("\t|>>力尽きた。\n\t|>>目の前が真っ白になった。\n");
 		}
 	}
 	
