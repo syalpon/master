@@ -232,7 +232,6 @@ namespace main_frame{
 	/*------------------*/
 	class Status{
 		public string name;
-		public int atk;
 		public Hp hp;
 		public Mp mp;
 		public Ex ex;
@@ -240,7 +239,7 @@ namespace main_frame{
 		
 		/* コンストラクタ */
 		public Status(){
-			name = "クマ";
+			name = "Alice";
 			hp = new Hp();
 			mp = new Mp();
 			lv = new Lv(ref hp,ref mp);
