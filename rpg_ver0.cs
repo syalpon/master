@@ -173,6 +173,17 @@ namespace main_frame{
 				System.Console.WriteLine("[ {0} : (x,y) = ({1},{2})]", item.Key.name , item.Value.x , item.Value.y );
 			}
 		}
+
+
+
+
+
+
+
+
+
+
+		
 	}
 }
 
