@@ -160,18 +160,18 @@ namespace main_frame{
 	/* 経験値クラス */
 	/*--------------*/
 	class Ex : Parameter{
+
 		public Lv lv;
-		
+    
 		/* コンストラクタ */
-		public Ex(ref Lv lv):this(ref lv,100,0,0){}
-		public Ex(ref Lv lv,int top):this(ref lv,top,0,0){}
-		public Ex(ref Lv lv,int top,int bot):this(ref lv,top,bot,bot){}
-		public Ex(ref Lv lv,int top,int mid,int bot):base(top,mid,bot){this.lv = lv;}
+		public Ex():this(100,0,0){}
+		public Ex(int top):this(top,0,0){}
+		public Ex(int top,int bot):this(top,bot,bot){}
+		public Ex(int top,int mid,int bot):base(top,mid,bot){}
 		
 		/* 経験値が溜まったときの処理処理 */
 		protected override void Max_Over(int v){
 			now = v - max;	/*超過分は持ち越し*/
-			lv.now++;				/*1レベル上げる*/
 		}
 		/* 現在値が最大値になった時レベルアップさせるように修正 */
 		protected override void Mid_Update(int v){
@@ -200,28 +200,16 @@ namespace main_frame{
 	/* レベルクラス */
 	/*--------------*/
 	class Lv : Parameter {
+    
 		/* インスタンス時の保存用クラス */
 		public Hp hp;
 		public Mp mp;
-		
+
 		/* 設定値 */
 		public int[] __dhp__ = {10,20,30};		/* レベルアップ時のhp伸びしろテーブル */
 		public int[] __dmp__ = {50,150,300};	/* レベルアップ時のhp伸びしろテーブル */
 		
-		public Lv(ref Hp hp,ref Mp mp):base(999,1,1){
-			this.hp = hp;
-			this.mp = mp;
-		}
-		
-		/* レベルアップ処理(現在レベルが変わった時) */
-		protected override void Mid_Update(int v){
-			if(v > 0){ /* ただの呼び出しやマイナス時は無視 */
-				/* レベルアップ時の表示 */
-				System.Console.Write(" レベルアップ! ({0}Lv→{1}Lv)\n",_now,++_now);
-				hp.max += __dhp__[now/100];
-				mp.max += __dmp__[now/100];
-			}
-		}
+		public Lv():base(999,1,1){}
 		
 		/* 表示メソッド */
 		public void Show(string m,string n){base.Show("Lv",m,n);}
@@ -244,9 +232,10 @@ namespace main_frame{
 			name = "Alice";
 			hp = new Hp();
 			mp = new Mp();
-			lv = new Lv(ref hp,ref mp);
-			ex = new Ex(ref lv);
+			lv = new Lv();
+			ex = new Ex();
 		}
+		
 		
 		/* 表示 */
 		public void Show(){
