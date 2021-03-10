@@ -1,0 +1,1 @@
+="a-"& COUNTIF(INDIRECT("D$1:AD"&ROW()-1),"a*")+1
