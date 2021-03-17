@@ -1,8 +1,13 @@
-class Test(){
+using System;
+class Test{
 	static public void Main(){
-		s = "test";
-		System.Console.Wirte(s);
-		s => s+".txt";
-		System.Console.Wirte(s);
+		string s = "test";
+		Function.show(() => s );
+	}
+}
+
+class Function{
+	static public void show(Func<string > f){
+		Console.Write(f());
 	}
 }
