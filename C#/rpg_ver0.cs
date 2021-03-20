@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 namespace main_frame{
 	
 	class Initializer{
