@@ -1,0 +1,1 @@
+csc rpg.cs Brave.cs Monster.cs Character.cs Status.cs HP.cs LV.cs EXP.cs ATC.cs Param.cs -nologo
