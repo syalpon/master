@@ -28,11 +28,5 @@ namespace RPG{
 		public void Die(){
 			System.Console.WriteLine("{0}は死んだ",this.name);
 		}
-		
-		public void Recovery(){
-			
-		}
-		
-		
 	}
 }	
