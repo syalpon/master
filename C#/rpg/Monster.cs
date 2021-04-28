@@ -1,9 +1,14 @@
-namespace RPG{
+namespace RPG
+{
 	/*モンスタークラスはキャラクタークラスを継承する*/
-	class Monster : Character {
+	class Monster : Character
+	{
 		/*コンストラクタ*/
-		public Monster(){
-			this.name = "怪獣";
+		public Monster(string name = "モンスター")
+		:base(name)
+		{
+
+
 		}
 	}
 }	

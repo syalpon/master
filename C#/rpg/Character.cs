@@ -1,16 +1,26 @@
-namespace RPG{
+namespace RPG
+{
 	/*キャラクタークラスはステータスをインスタンスに持つ*/
-	class Character{
-		/*プロパティ*/
-		public string name{get;private set;}
-		public Status status{get;private set;}
+	class Characte
+	{
 
-		/*コンストラクタ*/
-		public Character(string Name="Unknown"){
-			name = Name;
-			status = new Status();
-		}
-
+		/*フィールド*/
+		private string _name = "unknwon";
 		
+		/*プロパティ*/
+		public string Name 
+		{ 
+			private set{_name = value;}
+			get{return _name;}
+		}
+		
+		//public Status status{get;protected set;}
+		
+		/*コンストラクタ*/
+		public Character(string name)
+		{
+			_name = name;
+			//status = new Status();
+		}
 	}
 }	
