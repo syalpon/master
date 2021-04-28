@@ -1,5 +1,7 @@
-namespace RPG{
-	class Status {
+namespace RPG
+{
+	class Status 
+	{
 		/*フィールド*/
 		private string _name;
 		private HP  _hp;
@@ -8,23 +10,33 @@ namespace RPG{
 		private LV  _lv;
 		
 		/*プロパティ*/
-		public string name{
-			set{ _name = value;}
+		public string name
+		{
+			set{ _name = f(value);}
 			get{ return _name;}
 		}
-		public HP hp{
+		public virtual string f(string h)
+		{
+			return h;
+		}
+
+		public HP hp
+		{
 			set{ _hp = value;}
 			get{ return _hp;}
 		}
-		public ATC atc{
+		public ATC atc
+		{
 			set{ _atc = value;}
 			get{ return _atc;}
 		}
-		public EXP exp{
+		public EXP exp
+		{
 			set{ _exp = value;}
 			get{ return _exp;}
 		}
-		public LV lv{
+		public LV lv
+		{
 			set{ _lv = value;}
 			get{ return _lv;}
 		}

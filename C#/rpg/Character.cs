@@ -6,7 +6,7 @@ namespace RPG
 
 		/*フィールド*/
 		private string _name = "unknwon";
-		
+
 		/*プロパティ*/
 		public string Name 
 		{ 
