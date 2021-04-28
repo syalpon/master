@@ -1,6 +1,7 @@
 namespace RPG{
 	class HP : Param {
 		
+		
 		/*コンストラクタ*/
 		public HP(){}
 		public HP(int x):base(x,x,0){}
