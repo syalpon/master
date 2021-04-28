@@ -1,17 +1,9 @@
 namespace RPG{
-	class Brave{
-		/*フィールド*/
-		public Character character;
-		
+	/*勇者クラスはキャラクタークラスを継承する*/
+	class Brave : Character {
 		/*コンストラクタ*/
 		public Brave(){
-			character = new Character("勇者");
-			character.atc.now = 60;
-			character.hp.Reference(ref character);
-			character.atc.Reference(ref character);
-			character.exp.Reference(ref character);
-			character.lv.Reference(ref character);
+			this.name = "勇者";
 		}
-		
 	}
 }	
