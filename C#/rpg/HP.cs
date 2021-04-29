@@ -1,7 +1,7 @@
 namespace RPG{
-	class HP : Param {
-		
-		
+	class HP : IAction {
+		IAction iaction = new Lv();
+
 		/*コンストラクタ*/
 		public HP(){}
 		public HP(int x):base(x,x,0){}
@@ -19,6 +19,7 @@ namespace RPG{
 			}
 			
 		}
-		
+		/*HPの表示を変えたい*/
+		/*void override show()*/
 	}
 }	

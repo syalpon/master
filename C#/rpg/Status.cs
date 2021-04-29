@@ -10,14 +10,10 @@ namespace RPG
 		private LV  _lv;
 		
 		/*プロパティ*/
-		public string name
+		public virtual string name
 		{
-			set{ _name = f(value);}
+			set{ _name = value;}
 			get{ return _name;}
-		}
-		public virtual string f(string h)
-		{
-			return h;
 		}
 
 		public HP hp

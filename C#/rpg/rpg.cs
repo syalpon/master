@@ -15,8 +15,7 @@ namespace RPG
 			//monster.Atk(brave);
 			//brave.Atk(monster);
 			//brave.status.Show();
-			Console.WriteLine(123);
-			Console.WriteLine("123");
+
 
 			//void FUNC(string s){ Console.WriteLine(s); }
 			Action <string> show = s=>Console.WriteLine(s);
