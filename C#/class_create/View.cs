@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 class View 
 {
@@ -19,22 +20,49 @@ class View
         System.Console.Write(msg);
     }
 
-
-    public void AddClassShow(ClassCreater c)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="c"></param>
+    public void AddClassShow(Class c)
     {
         this.Show(c.GetClassName());
-        //System.Console.Write(c.GetFieldName()); TODO
-        this.Show("クラスが追加されました\n");
+        this.Show("");
+        this.Show("のクラスが追加されました\n");
     }
 
-    public void AddFieldShow(ClassCreater c)
+    /// <summary>
+    /// フィールドが追加されたときの表示
+    /// </summary>
+    /// <param name="c"></param>
+    public void AddFieldShow(Class c)
     {
         var f = c.GetField();
         this.Show(c.GetClassName() + " に ");
-        string accessType = Enum.GetName(typeof(AccessType), f.GetAccessType());
-        string dataType = Enum.GetName(typeof(DataType), f.GetDataType());
+        var accessType = Enum.GetName(typeof(FieldAccessType), f.GetAccessType());
+        var dataType = Enum.GetName(typeof(FieldDataType), f.GetDataType());
         this.Show(accessType+ " " + dataType + " " + f.GetFieldName() + " が追加されました\n\n");
     }
+
+    /// <summary>
+    /// メソッドが追加されたときの表示
+    /// </summary>
+    /// <param name="c"></param>
+    public void AddMethodShow(Class c)
+    {
+        var m = c.GetMethod();
+        this.Show(c.GetClassName() + " に ");
+        var accessType = Enum.GetName(typeof(MethodAccessType), m.GetAccessType());
+        var dataType = Enum.GetName(typeof(MethodDataType), m.GetDataType());
+        this.Show(accessType+ " " + dataType + " " + m.GetMethodName() +  "(" );
+        var listLength =  m.GetArgumentTypeList().Count();
+        for(int i = 0 ; i < listLength - 1 ; i++ ){
+            this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[i]) + ",");
+        }
+        this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[listLength - 1]));
+        this.Show( ")" + " が追加されました\n\n");
+    }
+
 
     /// <summary>
     /// ユーザからの入力を受け取る
@@ -50,9 +78,9 @@ class View
     /// </summary>
     /// <param name="stringlist">1から順番に表示する文字列</param>
     /// <returns> 選択肢番号 </returns>
-    public int SelectNumberWithExit(params string[] stringlist)
+    public int SelectNumberWithExit(string[] stringlist)
     {   
-        int index = 1;
+        var index = 1;
         foreach(string messages in stringlist)
         {
             System.Console.Write(index + "."+ messages + " 　" );
@@ -63,4 +91,24 @@ class View
         return int.Parse(this.GetMessege());
 
     }
+
+    /// <summary>
+    /// 選択肢(1,2,3,...ParamNum)を表示して選択された選択肢番号を返す
+    /// </summary>
+    /// <param name="stringlist">1から順番に表示する文字列</param>
+    /// <returns> 選択肢番号 </returns>
+    public int SelectNumber(string[] stringlist)
+    {   
+        int index = 1;
+        foreach(string messages in stringlist)
+        {
+            System.Console.Write(index + "."+ messages + " 　" );
+            index++;
+        }
+        System.Console.Write("\n>");
+
+        return int.Parse(this.GetMessege());
+
+    }
+
 }

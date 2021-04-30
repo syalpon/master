@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassCreater">
+    <Position X="9" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAIABAAAAAgAAAASAAAIAAAAAAAAAABghA=</HashCode>
+      <FileName>ClassCreater.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Field" />
+      <Property Name="Method" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Control">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAgAAAAAAAAABAAAQACgAAAAAAAI=</HashCode>
+      <FileName>Control.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="View" />
+      <Property Name="Model" />
+      <Property Name="MethodModel" />
+      <Property Name="FieldModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MainClass">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Control" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Field">
+    <Position X="12.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoAAAAAAAAAAAACAAAAAAAAQAEAEAAAAAAAAAAA=</HashCode>
+      <FileName>Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model">
+    <Position X="5.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEQEAAEEAAAAAABEAQEQAAASAIAQAABAAgEAAABBQA=</HashCode>
+      <FileName>Model.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClassCreater" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="View">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAQAQAIAAAAAEAAAAAIAgAAAAAAA=</HashCode>
+      <FileName>View.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Method">
+    <Position X="12.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoAACQAAAAAAAAAAAAAAACAQAEAAAAAAQAAAAAA=</HashCode>
+      <FileName>Method.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreateFigureOOP.MethodModel">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>MethodModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClassCreater" />
+      <Property Name="CreateMethodAnswer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CreateFigureOOP.FieldModel">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>FieldModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClassCreater" />
+      <Property Name="CreateFieldAnswer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CreateFigureOOP.CreateMethodAnswer">
+    <Position X="10" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreateMethodAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CreateFigureOOP.CreateFieldAnswer">
+    <Position X="9.75" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreateFieldAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

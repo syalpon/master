@@ -1,6 +1,14 @@
 class MainClass
 {
-	public static void Main()
+    internal Control Control
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public static void Main()
 	{
 		Control control = new Control();
 		control.Run();
