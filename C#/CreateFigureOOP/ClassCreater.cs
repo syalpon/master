@@ -30,7 +30,7 @@ class ClassCreater
     /// クラスにフィールドを追加する
     /// </summary>
     /// <param name="field"></param>
-    public void SetFieldToClass( Field field )
+    public void SetFieldToClass(Field field)
     {
         _class.AddField(field);
     }
@@ -39,7 +39,7 @@ class ClassCreater
     /// クラスにメソッドを追加する
     /// </summary>
     /// <param name="field"></param>
-    public void SetMethodToClass( Method method )
+    public void SetMethodToClass(Method method)
     {
         _class.AddMethod(method);
     }

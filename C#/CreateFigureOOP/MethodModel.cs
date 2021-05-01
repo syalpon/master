@@ -2,24 +2,52 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CreateFigureOOP
+class MethodModel : Model
 {
-    public class MethodModel
+    /// <summary>
+    /// 型の選択肢を返す
+    /// </summary>
+    /// <returns></returns>
+    public string[] GetMethodTypeSelection()
     {
-        internal ClassCreater ClassCreater
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        string[] choices = { "void", "int", "double", "string" };
+        return choices;
+    }
 
-        public CreateMethodAnswer CreateMethodAnswer
-        {
-            get => default;
-            set
-            {
-            }
-        }
+    /// <summary>
+    /// 型の選択肢を返す
+    /// </summary>
+    /// <returns></returns>
+    public string[] GetArgumentTypeSelection()
+    {
+        string[] choices = { "int", "double", "string" };
+        return choices;
+    }
+
+    /// <summary>
+    /// 「引数の個数を入力してください」の表示
+    /// </summary>
+    /// <returns></returns>
+    public string GetInputArgumentNumber()
+    {
+        return "引数の個数を入力してください。\n>";
+    }
+
+    /// <summary>
+    /// 「メソッド名を選択してください。」を返す
+    /// </summary>
+    /// <returns></returns>
+    public string GetInputMethodName()
+    {
+        return "メソッド名を入力してください。\n>";
+    }
+
+    /// <summary>
+    /// 「引数の型を入力してください」の表示
+    /// </summary>
+    /// <returns></returns>
+    public string GetInputArgumentType()
+    {
+        return "引数の型を入力してください。\n";
     }
 }

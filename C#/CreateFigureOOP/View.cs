@@ -21,14 +21,57 @@ class View
     }
 
     /// <summary>
-    /// 
+    /// 追加されたクラスの表示
     /// </summary>
     /// <param name="c"></param>
     public void AddClassShow(Class c)
     {
-        this.Show(c.GetClassName());
-        this.Show("");
-        this.Show("のクラスが追加されました\n");
+        var symbol = new Dictionary<string, string>()
+        {
+            {"Public","+"},
+            {"Protected","#"},
+            {"Private","-"},
+            {"Internal","~"}
+        };
+
+        this.Show(c.GetClassName());        
+        this.Show("\n----------------\n");
+
+        foreach(Field f in c.GetFieldList())
+        {
+            // 追加したフィールドのアクセス修飾子
+            this.Show(" " + symbol[Enum.GetName(typeof(FieldAccessType), f.GetAccessType())] + " ") ;
+            
+            // 追加したフィールド名
+            this.Show(f.GetFieldName() + " : ");
+
+            // 追加したフィールドの型
+            this.Show(Enum.GetName(typeof(FieldDataType), f.GetDataType()) + "\n");
+
+        }
+
+        this.Show("----------------\n");
+        
+        foreach(Method m in c.GetMethodList())
+        {
+            // 追加したメソッドのアクセス修飾子
+            this.Show(" " + symbol[Enum.GetName(typeof(MethodAccessType), m.GetAccessType())] + " ");
+
+            // 追加したメソッドの名前
+            this.Show(m.GetMethodName() + "(" );
+
+            // 追加したメソッドの引数一覧
+            var listLength =  m.GetArgumentTypeList().Count();
+            for(int i = 0 ; i < listLength - 1 ; i++ ){
+                this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[i]) + ",");
+            }
+            this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[listLength - 1]));
+            this.Show( ") : ");
+
+            // 追加したメソッドの戻り値の型
+            this.Show(Enum.GetName(typeof(MethodDataType), m.GetDataType()) + "\n");
+        }
+
     }
 
     /// <summary>

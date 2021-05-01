@@ -40,8 +40,6 @@ class Class
         _methodList.Add(method);
     }
 
-    
-
     /// <summary>
     /// クラスネームの取得
     /// </summary>
@@ -70,4 +68,18 @@ class Class
     }
 
 
+    /// <summary>
+    /// リスト全体を返す
+    /// </summary>
+    /// <returns></returns>
+    public List<Field> GetFieldList()
+    {
+        return _fieldList;
+    }
+
+
+    public List<Method> GetMethodList()
+    {
+        return _methodList;
+    }
 }

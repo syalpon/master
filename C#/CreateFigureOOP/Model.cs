@@ -4,15 +4,7 @@ using System.Collections;
 
 class Model
 {
-    ClassCreater _classCreater;
-
-    ClassCreater ClassCreater
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    protected ClassCreater _classCreater;
 
     /// <summary>
     /// コンストラクタ
@@ -20,6 +12,14 @@ class Model
     public Model()
     {
         _classCreater = new ClassCreater();
+    }
+
+    internal ClassCreater ClassCreater
+    {
+        get => default;
+        set
+        {
+        }
     }
 
     /// <summary>
@@ -88,39 +88,6 @@ class Model
     }
 
     /// <summary>
-    /// 型の選択肢を返す
-    /// </summary>
-    /// <returns></returns>
-    public string[] GetFieldTypeSelection()
-    {
-        string[] choices = {"int", "double", "string"};
-        return choices;
-    }
-
-    /// <summary>
-    /// 型の選択肢を返す
-    /// </summary>
-    /// <returns></returns>
-    public string[] GetArgumentTypeSelection()
-    {
-        string[] choices = {"int", "double", "string"};
-        return choices;
-    }
-
-
-    /// <summary>
-    /// 型の選択肢を返す
-    /// </summary>
-    /// <returns></returns>
-    public string[] GetMethodTypeSelection()
-    {
-        string[] choices = {"void","int", "double", "string"};
-        return choices;
-    }
-
-
-
-    /// <summary>
     /// 「描画したいクラス名を入力してください。」を返す
     /// </summary>
     /// <returns></returns>
@@ -148,30 +115,21 @@ class Model
     }
 
     /// <summary>
-    /// 「フィールド名を選択してください。」を返す
+    /// 
     /// </summary>
     /// <returns></returns>
-    public string GetInputFieldName()
+    public FieldModel CreateFieldModel()
     {
-        return "フィールド名を入力してください。\n>";
+        return new FieldModel();
     }
 
     /// <summary>
-    /// 「引数の個数を入力してください」の表示
+    /// 
     /// </summary>
     /// <returns></returns>
-    public string GetInputArgumentNumber()
+    public MethodModel CreateMethodModel()
     {
-        return "引数の個数を入力してください。\n>";
-    }
-
-    /// <summary>
-    /// 「引数の型を入力してください」の表示
-    /// </summary>
-    /// <returns></returns>
-    public string GetInputArgumentType()
-    {
-        return "引数の型を入力してください。\n";
+        return new MethodModel();
     }
 
     /// <summary>
@@ -191,7 +149,14 @@ class Model
         );
     }
 
-    public void AddMethod(MethodAccessType accessType, MethodDataType dataType, string methodName,List<MethodArgumentType> methodArgumentList )
+    /// <summary>
+    /// クラスにメソッド追加する
+    /// </summary>
+    /// <param name="accessType"></param>
+    /// <param name="dataType"></param>
+    /// <param name="methodName"></param>
+    /// <param name="methodArgumentList"></param>
+    public void AddMethod(MethodAccessType accessType, MethodDataType dataType, string methodName, List<MethodArgumentType> methodArgumentList)
     {
         _classCreater.SetMethodToClass(
             new Method(
@@ -202,6 +167,9 @@ class Model
             )
         );
     }
+
+
+
 
 
 }

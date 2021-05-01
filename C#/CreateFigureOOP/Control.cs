@@ -14,40 +14,8 @@ class Control
         _view  = new View();
     }
 
-    internal View View
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    internal Model Model
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    public CreateFigureOOP.MethodModel MethodModel
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    public CreateFigureOOP.FieldModel FieldModel
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
     /// <summary>
-    /// 
+    /// 実行
     /// </summary>
     public void Run()
     {
@@ -86,16 +54,18 @@ class Control
 
                     // フィールド
                     case 1:
+                        FieldModel fieldModel = _model.CreateFieldModel();
+
                         // アクセス修飾子 => accessType
-                        _view.Show(_model.GetInputAccessor());
-                        var fieldAccessType = (FieldAccessType)_view.SelectNumber(_model.GetAccessorSelection());
+                        _view.Show(fieldModel.GetInputAccessor());
+                        var fieldAccessType = (FieldAccessType)_view.SelectNumber(fieldModel.GetAccessorSelection());
 
                         // 型　　　　　　 => dataType
-                        _view.Show(_model.GetInputType());
-                        var dataType = (FieldDataType)_view.SelectNumber(_model.GetFieldTypeSelection());
+                        _view.Show(fieldModel.GetInputType());
+                        var dataType = (FieldDataType)_view.SelectNumber(fieldModel.GetFieldTypeSelection());
 
                         // フィールド名   => fieldName
-                        _view.Show(_model.GetInputFieldName());
+                        _view.Show(fieldModel.GetInputFieldName());
                         var fieldName = _view.GetMessege();
 
                         // フィールドの追加
@@ -106,20 +76,22 @@ class Control
 
                     // メソッド
                     case 2:
+                        MethodModel metodModel = _model.CreateMethodModel();
+
                         // アクセス修飾子 => accessType
-                        _view.Show(_model.GetInputAccessor());
-                        var methodAccessType = (MethodAccessType)_view.SelectNumber(_model.GetAccessorSelection());
+                        _view.Show(metodModel.GetInputAccessor());
+                        var methodAccessType = (MethodAccessType)_view.SelectNumber(metodModel.GetAccessorSelection());
 
                         // 型　　　　　　 => dataType
-                        _view.Show(_model.GetInputType());
-                        var methodDataType = (MethodDataType)_view.SelectNumber(_model.GetMethodTypeSelection());
+                        _view.Show(metodModel.GetInputType());
+                        var methodDataType = (MethodDataType)_view.SelectNumber(metodModel.GetMethodTypeSelection());
 
-                        // フィールド名   => methodName
-                        _view.Show(_model.GetInputFieldName());
+                        // メソッド名   => methodName
+                        _view.Show(metodModel.GetInputMethodName());
                         var methodName = _view.GetMessege();
 
                         // 引数の個数 => argmentNumber
-                        _view.Show(_model.GetInputArgumentNumber());
+                        _view.Show(metodModel.GetInputArgumentNumber());
                         var argmentNumber = int.Parse(_view.GetMessege());
                         
                         // 結果を保持するリスト
@@ -128,16 +100,16 @@ class Control
                         // 引数の型 => Listに追加していく
                         for (int i = 0; i < argmentNumber; i++ ) 
                         { 
-                            _view.Show(_model.GetInputArgumentType());
+                            _view.Show(metodModel.GetInputArgumentType());
                             methodArgumentList.Add(
-                                (MethodArgumentType)_view.SelectNumber(_model.GetArgumentTypeSelection())
+                                (MethodArgumentType)_view.SelectNumber(metodModel.GetArgumentTypeSelection())
                             );  
                         }
 
                         // メソッドの追加
                         _model.AddMethod(methodAccessType, methodDataType, methodName, methodArgumentList);
                         _view.AddMethodShow(_model.GetNowClass());
-                    break;
+                        break;
 
                     default : break;
                 }
@@ -148,10 +120,28 @@ class Control
             _model.FinishedCreateClass();
             _view.AddClassShow( _model.GetClass() );
         }
+    }
+    
 
 
 
+
+
+
+
+    internal View View
+    {
+        get => default;
+        set
+        {
+        }
     }
 
-
+    internal Model Model
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }

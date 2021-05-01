@@ -28,3 +28,18 @@ C:\Users\尾上太一\Documents\C#\work\master\C#\CreateFigureOOP\bin\Debug\netc
 C:\Users\尾上太一\Documents\C#\work\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.dll
 C:\Users\尾上太一\Documents\C#\work\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.pdb
 C:\Users\尾上太一\Documents\C#\work\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.genruntimeconfig.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.exe
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.deps.json
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.runtimeconfig.json
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.runtimeconfig.dev.json
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.dll
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\bin\Debug\netcoreapp3.1\CreateFigureOOP.pdb
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.csprojAssemblyReference.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.japanese.resources
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.csproj.GenerateResource.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.AssemblyInfoInputs.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.AssemblyInfo.cs
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.csproj.CoreCompileInputs.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.dll
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.pdb
+C:\Users\細見 匠弥\workspace\project1\master\C#\CreateFigureOOP\obj\Debug\netcoreapp3.1\CreateFigureOOP.genruntimeconfig.cache
