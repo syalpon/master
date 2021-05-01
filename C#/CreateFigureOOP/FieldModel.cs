@@ -1,20 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 
 class FieldModel : Model
 {
+    /// <summary>
+    /// アクセス修飾子の選択肢を返す
+    /// </summary>
+    /// <returns></returns>
+    public string[] GetFieldAccessorSelection()
+    {
+        return GetSelection<FieldAccessType>();
+    }
+
     /// <summary>
     /// 型の選択肢を返す
     /// </summary>
     /// <returns></returns>
     public string[] GetFieldTypeSelection()
     {
-        string[] choices = { "int", "string", "doubl e" };
-        return choices;
+        return GetSelection<FieldDataType>();
     }
-
 
     /// <summary>
     /// 「フィールド名を選択してください。」を返す
@@ -28,12 +32,12 @@ class FieldModel : Model
     /// <summary>
     /// フィールドを生成する
     /// </summary>
-    /// <returns></returns>
-    public Field CreateField(FieldAccessType accessType, FieldDataType dataType, string fieldName)
+    /// <param name="accessTypeSelectNumber">アクセス修飾子</param>
+    /// <param name="dataTypeSelectNumber">型</param>
+    /// <param name="fieldName">フィールド名</param>
+    /// <returns>フィールド</returns>
+    public Field CreateField(int accessTypeSelectNumber, int dataTypeSelectNumber, string fieldName)
     {
-        return new Field(accessType, dataType, fieldName);
-
+        return new Field( (FieldAccessType)accessTypeSelectNumber, (FieldDataType)dataTypeSelectNumber, fieldName);
     }
-
-
 }

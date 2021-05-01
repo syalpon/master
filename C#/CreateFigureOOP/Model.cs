@@ -26,9 +26,9 @@ class Model
     /// クラスの追加(インスタンス化)
     /// </summary>
     /// <param name="msg"></param>
-    public void CreateNewClass(string classname)
+    public void CreateNewClass(string className)
     {
-        _classCreater.CreateNewClass(classname);
+        _classCreater.CreateNewClass(className);
     }
 
     /// <summary>
@@ -39,13 +39,32 @@ class Model
         _classCreater.FinishedCreateClass();
     }
 
+
+    /// <summary>
+    /// ジェネリックで各Enumの文字列を取得する
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    protected string[] GetSelection<T>()
+    {
+        string[] choices = new string[Enum.GetNames(typeof(T)).Length];
+        foreach (int Value in Enum.GetValues(typeof(T)))
+        {
+            string name = Enum.GetName(typeof(T), Value);
+            choices[Value-1] = name;
+        }
+        return choices;
+    }
+
+
+
     /// <summary>
     /// 作成中のクラスを取得する
     /// </summary>
     /// <returns></returns>
-    public Class GetNowClass()
+    public Class GetMakingClass()
     {
-        return _classCreater.GetNowClass();
+        return _classCreater.GetMakingClass();
     }
 
     /// <summary>
@@ -74,16 +93,6 @@ class Model
     public string[] GetFieldAndMethodSelection()
     {
         string[] choices = {"フィールド", "メソッド"};
-        return choices;
-    }
-
-    /// <summary>
-    /// アクセス修飾子の選択肢を返す
-    /// </summary>
-    /// <returns></returns>
-    public string[] GetAccessorSelection()
-    {
-        string[] choices = {"private", "protected", "public"};
         return choices;
     }
 

@@ -19,9 +19,9 @@ class Control
     /// </summary>
     public void Run()
     {
-        int selectNumber;
         /* クラス図を作成をします(Escキーで終了) の表示 */
         _view.Show(_model.GetFirstContext());
+
         while(true)
         {
             // クラス名の入力を促す
@@ -43,6 +43,9 @@ class Control
             /* クラスをインスタンス化してクラスネームの追加 */
             _model.CreateNewClass(message);
 
+            // ユーザの選択した選択肢番号を宣言
+            int selectNumber;
+
             do{
                 /* 選択肢の表示 */
                 selectNumber = _view.SelectNumberWithExit(_model.GetFieldAndMethodSelection());
@@ -54,39 +57,42 @@ class Control
 
                     // フィールド
                     case 1:
-                        // _modelを拡張した分身を作成
-                        FieldModel fieldModel = _model.CreateFieldModel();
+                        var fieldModel = _model.CreateFieldModel();
 
-                        // アクセス修飾子 => accessType
+                        // アクセス修飾子  => accessType
                         _view.Show(fieldModel.GetInputAccessor());
-                        var fieldAccessType = (FieldAccessType)_view.SelectNumber(fieldModel.GetAccessorSelection());
+                        var accessTypeSelectNumber = _view.SelectNumber(fieldModel.GetFieldAccessorSelection());
 
-                        // 型　　　　　　 => dataType
+                        // 型　　　　　　  => dataType
                         _view.Show(fieldModel.GetInputType());
-                        var dataType = (FieldDataType)_view.SelectNumber(fieldModel.GetFieldTypeSelection());
+                        var dataTypeSelectNumber = _view.SelectNumber(fieldModel.GetFieldTypeSelection());
 
-                        // フィールド名   => fieldName
+                        // フィールド名    => fieldName
                         _view.Show(fieldModel.GetInputFieldName());
                         var fieldName = _view.GetMessege();
 
+                        // フィールドを生成 => createdField
+                        var createdField = fieldModel.CreateField(accessTypeSelectNumber, dataTypeSelectNumber, fieldName);
+
                         // フィールドの追加
-                        //fieldModel.AddField(fieldAccessType, dataType, fieldName);
-                        _model.SetFieldToClass(fieldModel.CreateField(fieldAccessType, dataType, fieldName));
-                        _view.AddFieldShow(_model.GetNowClass());
+                        _model.SetFieldToClass(createdField);
+
+                        // 作成したフィールドがどこに追加されたかを表示する
+                        _view.AddFieldShow(_model.GetMakingClass().GetClassName(), createdField);
 
                         break;
 
                     // メソッド
                     case 2:
-                        MethodModel methodModel = _model.CreateMethodModel();
+                        var methodModel = _model.CreateMethodModel();
 
                         // アクセス修飾子 => accessType
                         _view.Show(methodModel.GetInputAccessor());
-                        var methodAccessType = (MethodAccessType)_view.SelectNumber(methodModel.GetAccessorSelection());
+                        var methodAccessTypeSelectNumber = _view.SelectNumber(methodModel.GetMethodAccessorSelection());
 
                         // 型　　　　　　 => dataType
                         _view.Show(methodModel.GetInputType());
-                        var methodDataType = (MethodDataType)_view.SelectNumber(methodModel.GetMethodTypeSelection());
+                        var methodDataTypeSelectNumber = _view.SelectNumber(methodModel.GetMethodTypeSelection());
 
                         // メソッド名   => methodName
                         _view.Show(methodModel.GetInputMethodName());
@@ -94,24 +100,26 @@ class Control
 
                         // 引数の個数 => argmentNumber
                         _view.Show(methodModel.GetInputArgumentNumber());
-                        var argmentNumber = int.Parse(_view.GetMessege());
+                        var argumentNumber = int.Parse(_view.GetMessege());
                         
                         // 結果を保持するリスト
-                        var methodArgumentList = new List<MethodArgumentType>();
+                        var methodArgumentList = new List<int>();
 
                         // 引数の型 => Listに追加していく
-                        for (int i = 0; i < argmentNumber; i++ ) 
+                        for (int i = 0; i < argumentNumber; i++ ) 
                         { 
                             _view.Show(methodModel.GetInputArgumentType());
-                            methodArgumentList.Add(
-                                (MethodArgumentType)_view.SelectNumber(methodModel.GetArgumentTypeSelection())
-                            );  
+                            methodArgumentList.Add( _view.SelectNumber(methodModel.GetArgumentTypeSelection()));  
                         }
 
+                        // メソッドを生成
+                        var createdMethod = methodModel.CreateMethod(methodAccessTypeSelectNumber, methodDataTypeSelectNumber, methodName, methodArgumentList);
+
                         // メソッドの追加
-                        //methodModel.AddMethod(methodAccessType, methodDataType, methodName, methodArgumentList);
-                        _model.SetMethodToClass(methodModel.CreateMethod(methodAccessType, methodDataType, methodName, methodArgumentList));
-                        _view.AddMethodShow(_model.GetNowClass());
+                        _model.SetMethodToClass(createdMethod);
+
+                        // 作成したメソッドがどこに追加されたかを表示する
+                        _view.AddMethodShow(_model.GetMakingClass().GetClassName(), createdMethod );
 
                         break;
 
@@ -124,6 +132,9 @@ class Control
             _model.FinishedCreateClass();
             _view.AddClassShow( _model.GetClass() );
         }
+
+
+        //TODO：全体の表示
     }
     
 

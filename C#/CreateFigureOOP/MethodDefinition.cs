@@ -5,7 +5,8 @@ public enum MethodAccessType
 {
     Private = 1,
     Protected = 2,
-    Public = 3
+    Public = 3,
+    Internal = 4
 }
 
 /// <summary>

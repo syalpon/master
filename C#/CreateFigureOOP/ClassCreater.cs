@@ -49,7 +49,7 @@ class ClassCreater
     /// </summary>
     public void FinishedCreateClass()
     {
-        _classList.Add( _class );
+        _classList.Add(_class);
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ class ClassCreater
     /// ì¬’†‚ÌƒNƒ‰ƒX‚ğæ“¾‚·‚é
     /// </summary>
     /// <returns></returns>
-    public Class GetNowClass()
+    public Class GetMakingClass()
     {
         return _class;
     }

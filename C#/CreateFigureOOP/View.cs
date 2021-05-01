@@ -37,39 +37,39 @@ class View
         this.Show(c.GetClassName());        
         this.Show("\n----------------\n");
 
-        foreach(Field f in c.GetFieldList())
+        foreach(Field field in c.GetFieldList())
         {
             // 追加したフィールドのアクセス修飾子
-            this.Show(" " + symbol[Enum.GetName(typeof(FieldAccessType), f.GetAccessType())] + " ") ;
+            this.Show(" " + symbol[Enum.GetName(typeof(FieldAccessType), field.GetAccessType())] + " ") ;
             
             // 追加したフィールド名
-            this.Show(f.GetFieldName() + " : ");
+            this.Show(field.GetFieldName() + " : ");
 
             // 追加したフィールドの型
-            this.Show(Enum.GetName(typeof(FieldDataType), f.GetDataType()) + "\n");
+            this.Show(Enum.GetName(typeof(FieldDataType), field.GetDataType()) + "\n");
 
         }
 
         this.Show("----------------\n");
         
-        foreach(Method m in c.GetMethodList())
+        foreach(Method method in c.GetMethodList())
         {
             // 追加したメソッドのアクセス修飾子
-            this.Show(" " + symbol[Enum.GetName(typeof(MethodAccessType), m.GetAccessType())] + " ");
+            this.Show(" " + symbol[Enum.GetName(typeof(MethodAccessType), method.GetAccessType())] + " ");
 
             // 追加したメソッドの名前
-            this.Show(m.GetMethodName() + "(" );
+            this.Show(method.GetMethodName() + "(" );
 
             // 追加したメソッドの引数一覧
-            var listLength =  m.GetArgumentTypeList().Count();
+            var listLength =  method.GetArgumentTypeList().Count();
             for(int i = 0 ; i < listLength - 1 ; i++ ){
-                this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[i]) + ",");
+                this.Show( Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[i]) + ",");
             }
-            this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[listLength - 1]));
+            this.Show( Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[listLength - 1]));
             this.Show( ") : ");
 
             // 追加したメソッドの戻り値の型
-            this.Show(Enum.GetName(typeof(MethodDataType), m.GetDataType()) + "\n");
+            this.Show(Enum.GetName(typeof(MethodDataType), method.GetDataType()) + "\n");
         }
 
     }
@@ -78,31 +78,29 @@ class View
     /// フィールドが追加されたときの表示
     /// </summary>
     /// <param name="c"></param>
-    public void AddFieldShow(Class c)
+    public void AddFieldShow(string makingClassName, Field field)
     {
-        var f = c.GetField();
-        this.Show(c.GetClassName() + " に ");
-        var accessType = Enum.GetName(typeof(FieldAccessType), f.GetAccessType());
-        var dataType = Enum.GetName(typeof(FieldDataType), f.GetDataType());
-        this.Show(accessType+ " " + dataType + " " + f.GetFieldName() + " が追加されました\n\n");
+        this.Show(makingClassName + " に ");
+        var accessType = Enum.GetName(typeof(FieldAccessType), field.GetAccessType());
+        var dataType = Enum.GetName(typeof(FieldDataType), field.GetDataType());
+        this.Show(accessType+ " " + dataType + " " + field.GetFieldName() + " が追加されました\n\n");
     }
 
     /// <summary>
     /// メソッドが追加されたときの表示
     /// </summary>
-    /// <param name="c"></param>
-    public void AddMethodShow(Class c)
+    /// <param name="method"></param>
+    public void AddMethodShow(string makingClassName, Method method)
     {
-        var m = c.GetMethod();
-        this.Show(c.GetClassName() + " に ");
-        var accessType = Enum.GetName(typeof(MethodAccessType), m.GetAccessType());
-        var dataType = Enum.GetName(typeof(MethodDataType), m.GetDataType());
-        this.Show(accessType+ " " + dataType + " " + m.GetMethodName() +  "(" );
-        var listLength =  m.GetArgumentTypeList().Count();
+        this.Show( makingClassName + " に ");
+        var accessType = Enum.GetName(typeof(MethodAccessType), method.GetAccessType());
+        var dataType = Enum.GetName(typeof(MethodDataType), method.GetDataType());
+        this.Show(accessType+ " " + dataType + " " + method.GetMethodName() +  "(" );
+        var listLength =  method.GetArgumentTypeList().Count();
         for(int i = 0 ; i < listLength - 1 ; i++ ){
-            this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[i]) + ",");
+            this.Show( Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[i]) + ",");
         }
-        this.Show( Enum.GetName(typeof(MethodArgumentType), m.GetArgumentTypeList()[listLength - 1]));
+        this.Show( Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[listLength - 1]));
         this.Show( ")" + " が追加されました\n\n");
     }
 
@@ -119,12 +117,12 @@ class View
     /// <summary>
     /// 選択肢(1,2,3,...ParamNum-1,0)を表示して選択された選択肢番号を返す
     /// </summary>
-    /// <param name="stringlist">1から順番に表示する文字列</param>
+    /// <param name="stringList">1から順番に表示する文字列</param>
     /// <returns> 選択肢番号 </returns>
-    public int SelectNumberWithExit(string[] stringlist)
+    public int SelectNumberWithExit(string[] stringList)
     {   
         var index = 1;
-        foreach(string messages in stringlist)
+        foreach(string messages in stringList)
         {
             System.Console.Write(index + "."+ messages + " 　" );
             index++;

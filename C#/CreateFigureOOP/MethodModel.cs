@@ -1,9 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 class MethodModel : Model
 {
+
+    /// <summary>
+    /// アクセス修飾子の選択肢を返す
+    /// </summary>
+    /// <returns></returns>
+    public string[] GetMethodAccessorSelection()
+    {
+        return GetSelection<MethodAccessType>();
+    }
 
     /// <summary>
     /// 型の選択肢を返す
@@ -11,24 +20,22 @@ class MethodModel : Model
     /// <returns></returns>
     public string[] GetMethodTypeSelection()
     {
-        string[] choices = { "void", "int", "double", "string" };
-        return choices;
+        return GetSelection<MethodDataType>();
     }
 
     /// <summary>
-    /// 型の選択肢を返す
+    /// 引数の選択肢を返す
     /// </summary>
     /// <returns></returns>
     public string[] GetArgumentTypeSelection()
     {
-        string[] choices = { "int", "double", "string" };
-        return choices;
+        return GetSelection<MethodArgumentType>();
     }
 
     /// <summary>
     /// 「引数の個数を入力してください」の表示
     /// </summary>
-    /// <returns></returns>
+    /// <returns>string </returns>
     public string GetInputArgumentNumber()
     {
         return "引数の個数を入力してください。\n>";
@@ -46,7 +53,7 @@ class MethodModel : Model
     /// <summary>
     /// 「引数の型を入力してください」の表示
     /// </summary>
-    /// <returns></returns>
+    /// <returns>string</returns>
     public string GetInputArgumentType()
     {
         return "引数の型を入力してください。\n";
@@ -55,13 +62,15 @@ class MethodModel : Model
     /// <summary>
     /// メソッドを生成する
     /// </summary>
-    /// <param name="accessType"></param>
-    /// <param name="dataType"></param>
-    /// <param name="methodName"></param>
-    /// <param name="methodArgumentList"></param>
-    public Method CreateMethod(MethodAccessType accessType, MethodDataType dataType, string methodName, List<MethodArgumentType> methodArgumentList)
+    /// <param name="accessTypeSelectNumber">アクセス修飾子</param>
+    /// <param name="methodDataTypeSelectNumber">メソッドの戻り値の型</param>
+    /// <param name="methodName">メソッド名</param>
+    /// <param name="methodArgumentListSelectNumbers">メソッド引数</param>
+    /// <returns>メソッド<returns>
+    public Method CreateMethod(int accessTypeSelectNumber, int methodDataTypeSelectNumber, string methodName, List<int> methodArgumentListSelectNumbers)
     {
-        return new Method(accessType, dataType, methodName, methodArgumentList);
+        List<MethodArgumentType> methodArgumentList = methodArgumentListSelectNumbers.Cast<MethodArgumentType>().ToList();
+        return new Method((MethodAccessType)accessTypeSelectNumber, (MethodDataType) methodDataTypeSelectNumber, methodName, methodArgumentList);
     }
 
 }
