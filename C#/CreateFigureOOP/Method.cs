@@ -52,11 +52,12 @@ class Method
     }
 
     /// <summary>
-    /// 
+    /// 引数を返す
     /// </summary>
     /// <returns></returns>
     public List<MethodArgumentType> GetArgumentTypeList()
     {
         return _argumentTypeList;
     }
+
 }

@@ -4,6 +4,7 @@ using System.Text;
 
 class MethodModel : Model
 {
+
     /// <summary>
     /// 型の選択肢を返す
     /// </summary>
@@ -50,4 +51,17 @@ class MethodModel : Model
     {
         return "引数の型を入力してください。\n";
     }
+
+    /// <summary>
+    /// メソッドを生成する
+    /// </summary>
+    /// <param name="accessType"></param>
+    /// <param name="dataType"></param>
+    /// <param name="methodName"></param>
+    /// <param name="methodArgumentList"></param>
+    public Method CreateMethod(MethodAccessType accessType, MethodDataType dataType, string methodName, List<MethodArgumentType> methodArgumentList)
+    {
+        return new Method(accessType, dataType, methodName, methodArgumentList);
+    }
+
 }

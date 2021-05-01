@@ -11,7 +11,7 @@ class FieldModel : Model
     /// <returns></returns>
     public string[] GetFieldTypeSelection()
     {
-        string[] choices = { "int", "double", "string" };
+        string[] choices = { "int", "string", "doubl e" };
         return choices;
     }
 
@@ -24,4 +24,16 @@ class FieldModel : Model
     {
         return "フィールド名を入力してください。\n>";
     }
+
+    /// <summary>
+    /// フィールドを生成する
+    /// </summary>
+    /// <returns></returns>
+    public Field CreateField(FieldAccessType accessType, FieldDataType dataType, string fieldName)
+    {
+        return new Field(accessType, dataType, fieldName);
+
+    }
+
+
 }

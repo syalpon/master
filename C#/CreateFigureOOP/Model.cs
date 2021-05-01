@@ -129,7 +129,8 @@ class Model
     /// <returns></returns>
     public MethodModel CreateMethodModel()
     {
-        return new MethodModel();
+        return new MethodModel(); 
+
     }
 
     /// <summary>
@@ -138,15 +139,9 @@ class Model
     /// <param name="accessType"></param>
     /// <param name="dataType"></param>
     /// <param name="fieldName"></param>
-    public void AddField(FieldAccessType accessType, FieldDataType dataType, string fieldName)
+    public void SetFieldToClass(Field field)
     {
-        _classCreater.SetFieldToClass(
-            new Field(
-                accessType,
-                dataType,
-                fieldName
-            )
-        );
+        _classCreater.SetFieldToClass(field);
     }
 
     /// <summary>
@@ -156,20 +151,10 @@ class Model
     /// <param name="dataType"></param>
     /// <param name="methodName"></param>
     /// <param name="methodArgumentList"></param>
-    public void AddMethod(MethodAccessType accessType, MethodDataType dataType, string methodName, List<MethodArgumentType> methodArgumentList)
+    public void SetMethodToClass(Method method)
     {
-        _classCreater.SetMethodToClass(
-            new Method(
-                accessType,
-                dataType,
-                methodName,
-                methodArgumentList
-            )
-        );
+        _classCreater.SetMethodToClass(method);
     }
-
-
-
 
 
 }

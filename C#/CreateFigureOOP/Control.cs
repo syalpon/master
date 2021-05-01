@@ -54,6 +54,7 @@ class Control
 
                     // フィールド
                     case 1:
+                        // _modelを拡張した分身を作成
                         FieldModel fieldModel = _model.CreateFieldModel();
 
                         // アクセス修飾子 => accessType
@@ -69,29 +70,30 @@ class Control
                         var fieldName = _view.GetMessege();
 
                         // フィールドの追加
-                        _model.AddField(fieldAccessType, dataType, fieldName);
+                        //fieldModel.AddField(fieldAccessType, dataType, fieldName);
+                        _model.SetFieldToClass(fieldModel.CreateField(fieldAccessType, dataType, fieldName));
                         _view.AddFieldShow(_model.GetNowClass());
 
                         break;
 
                     // メソッド
                     case 2:
-                        MethodModel metodModel = _model.CreateMethodModel();
+                        MethodModel methodModel = _model.CreateMethodModel();
 
                         // アクセス修飾子 => accessType
-                        _view.Show(metodModel.GetInputAccessor());
-                        var methodAccessType = (MethodAccessType)_view.SelectNumber(metodModel.GetAccessorSelection());
+                        _view.Show(methodModel.GetInputAccessor());
+                        var methodAccessType = (MethodAccessType)_view.SelectNumber(methodModel.GetAccessorSelection());
 
                         // 型　　　　　　 => dataType
-                        _view.Show(metodModel.GetInputType());
-                        var methodDataType = (MethodDataType)_view.SelectNumber(metodModel.GetMethodTypeSelection());
+                        _view.Show(methodModel.GetInputType());
+                        var methodDataType = (MethodDataType)_view.SelectNumber(methodModel.GetMethodTypeSelection());
 
                         // メソッド名   => methodName
-                        _view.Show(metodModel.GetInputMethodName());
+                        _view.Show(methodModel.GetInputMethodName());
                         var methodName = _view.GetMessege();
 
                         // 引数の個数 => argmentNumber
-                        _view.Show(metodModel.GetInputArgumentNumber());
+                        _view.Show(methodModel.GetInputArgumentNumber());
                         var argmentNumber = int.Parse(_view.GetMessege());
                         
                         // 結果を保持するリスト
@@ -100,15 +102,17 @@ class Control
                         // 引数の型 => Listに追加していく
                         for (int i = 0; i < argmentNumber; i++ ) 
                         { 
-                            _view.Show(metodModel.GetInputArgumentType());
+                            _view.Show(methodModel.GetInputArgumentType());
                             methodArgumentList.Add(
-                                (MethodArgumentType)_view.SelectNumber(metodModel.GetArgumentTypeSelection())
+                                (MethodArgumentType)_view.SelectNumber(methodModel.GetArgumentTypeSelection())
                             );  
                         }
 
                         // メソッドの追加
-                        _model.AddMethod(methodAccessType, methodDataType, methodName, methodArgumentList);
+                        //methodModel.AddMethod(methodAccessType, methodDataType, methodName, methodArgumentList);
+                        _model.SetMethodToClass(methodModel.CreateMethod(methodAccessType, methodDataType, methodName, methodArgumentList));
                         _view.AddMethodShow(_model.GetNowClass());
+
                         break;
 
                     default : break;

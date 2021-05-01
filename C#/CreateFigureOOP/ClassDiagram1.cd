@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ClassCreater" Collapsed="true">
-    <Position X="9" Y="0.75" Width="2.25" />
-    <AssociationLine Name="Field" Type="Field" FixedFromPoint="true" FixedToPoint="true">
+    <Position X="10" Y="0.75" Width="2.25" />
+    <AssociationLine Name="Field" Type="Field" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="11" Y="1" />
-        <Point X="11.625" Y="1" />
-        <Point X="11.625" Y="0.781" />
-        <Point X="12.5" Y="0.781" />
+        <Point X="11.188" Y="1.312" />
+        <Point X="11.188" Y="3.969" />
+        <Point X="12.875" Y="3.969" />
+        <Point X="12.875" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Method" Type="Method" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.188" Y="1.312" />
+        <Point X="11.188" Y="1.687" />
+        <Point X="10.625" Y="1.687" />
+        <Point X="10.625" Y="4.5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -20,7 +28,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Control" Collapsed="true">
-    <Position X="3.25" Y="2.5" Width="1.5" />
+    <Position X="3" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAACgAAAAAAAI=</HashCode>
       <FileName>Control.cs</FileName>
@@ -31,7 +39,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="MainClass" Collapsed="true">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="3" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Main.cs</FileName>
@@ -41,16 +49,16 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Field" Collapsed="true">
-    <Position X="12.5" Y="0.5" Width="2" />
+    <Position X="12" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAoAAAAAAAAAAAACAAAAAAAAQAEAEAAAAAAAAAAA=</HashCode>
       <FileName>Field.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model">
+  <Class Name="Model" Collapsed="true">
     <Position X="6" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAQEAAEEAAAAAABAAQEABEASAIAAAABAAgAAAABAQA=</HashCode>
+      <HashCode>AAAQEAAAEAAIABAAAAQEABEASAIAAAABAAgAAAABAQA=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -58,14 +66,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="View" Collapsed="true">
-    <Position X="0.75" Y="2.75" Width="1.5" />
+    <Position X="3" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAQAQAIAAAAAEAAAAAIAgAAAAAAA=</HashCode>
       <FileName>View.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Method" Collapsed="true">
-    <Position X="12.75" Y="3.5" Width="2" />
+    <Position X="9.75" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAoAACQAAAAAAAAAAAAAAACAQAEAAAAAAQAAAAAA=</HashCode>
       <FileName>Method.cs</FileName>
@@ -85,25 +93,17 @@
       <FileName>CreateFieldAnswer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FieldModel">
-    <Position X="7.25" Y="5.5" Width="1.5" />
-    <InheritanceLine Type="Model" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="7.125" Y="4.747" />
-        <Point X="7.125" Y="5.125" />
-        <Point X="8.188" Y="5.125" />
-        <Point X="8.188" Y="5.5" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="FieldModel" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>FieldModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MethodModel">
-    <Position X="5.25" Y="5.5" Width="1.5" />
+  <Class Name="MethodModel" Collapsed="true">
+    <Position X="5" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAEAAAABAAAAAAAAEAAAAAAAAAAAQAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAEAAAABAAAAAAIAEAAAAAAAAAAAQAAAAAAAAAAABAA=</HashCode>
       <FileName>MethodModel.cs</FileName>
     </TypeIdentifier>
   </Class>
