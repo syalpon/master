@@ -92,7 +92,7 @@ class Control
 
                         // 型　　　　　　 => dataType
                         _view.Show(methodModel.GetInputType());
-                        var methodDataTypeSelectNumber = _view.SelectNumber(methodModel.GetMethodTypeSelection());
+                        var methodDataTypeSelectNumber = _view.SelectNumber(methodModel.GetMethodDataTypeSelection());
 
                         // メソッド名   => methodName
                         _view.Show(methodModel.GetInputMethodName());

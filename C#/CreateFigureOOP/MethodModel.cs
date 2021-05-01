@@ -4,7 +4,6 @@ using System.Linq;
 
 class MethodModel : Model
 {
-
     /// <summary>
     /// アクセス修飾子の選択肢を返す
     /// </summary>
@@ -18,7 +17,7 @@ class MethodModel : Model
     /// 型の選択肢を返す
     /// </summary>
     /// <returns></returns>
-    public string[] GetMethodTypeSelection()
+    public string[] GetMethodDataTypeSelection()
     {
         return GetSelection<MethodDataType>();
     }
