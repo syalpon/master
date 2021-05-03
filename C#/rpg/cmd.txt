@@ -1,2 +1,0 @@
-path = C:\Windows\Microsoft.NET\Framework64\v4.0.30319
-csc rpg.cs Brave.cs Monster.cs Character.cs Status.cs HP.cs LV.cs EXP.cs ATC.cs Param.cs -nologo
