@@ -79,6 +79,35 @@ class ClassCreater
         return _class;
     }
 
+    /// <summary>
+    /// 作成した全てのクラスを返す
+    /// </summary>
+    /// <returns></returns>
+    public List<Class> GetAllClass()
+    {
+        return _classList;
+    }
+
+    /// <summary>
+    /// 作成した全てのクラス名を返す
+    /// </summary>
+    /// <returns></returns>
+    public List<string> GetAllClassName()
+    {
+        var nameList = new List<string>();
+        foreach(Class c in _classList)
+        {
+            nameList.Add(c.GetClassName());
+        }
+        return nameList;
+    }
+
+
+
+
+
+
+
 
 
     internal Field Field

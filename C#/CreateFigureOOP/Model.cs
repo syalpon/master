@@ -83,7 +83,7 @@ class Model
     /// <returns></returns>
     public string GetFirstContext()
     {
-       return  "クラス図を作成をします。(入力なしで終了)\n";
+       return  "クラス図を作成をします。\n";
     }
 
     /// <summary>
@@ -102,7 +102,7 @@ class Model
     /// <returns></returns>
     public string GetClassNameContext()
     {
-        return "描画したいクラス名を入力してください。\n";
+        return "描画したいクラス名を入力してください。(入力なしで終了)\n>";
     }
 
     /// <summary>
@@ -140,6 +140,24 @@ class Model
     {
         return new MethodModel(); 
 
+    }
+
+    /// <summary>
+    /// 作成した全てのクラスを返す
+    /// </summary>
+    /// <returns></returns>
+    public List<Class> GetAllClass() 
+    {
+        return _classCreater.GetAllClass();
+    }
+
+    /// <summary>
+    /// 作成した全てのクラス名を返す
+    /// </summary>
+    /// <returns></returns>
+    public List<string> GetAllClassName()
+    {
+        return _classCreater.GetAllClassName();
     }
 
     /// <summary>
