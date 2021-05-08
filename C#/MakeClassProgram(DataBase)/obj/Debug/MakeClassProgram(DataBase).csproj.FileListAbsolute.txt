@@ -1,0 +1,12 @@
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\MakeClassProgram(DataBase).pdb
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).csprojAssemblyReference.cache
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).csproj.CoreCompileInputs.cache
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).pdb
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\MakeClassProgram(DataBase).exe
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).exe
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\MakeClassProgram(DataBase).exe.config
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\EntityFramework.dll
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\EntityFramework.xml
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\尾上太一\Documents\C#\work\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).csproj.CopyComplete
