@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\尾上太一\\Documents\\C#\\work\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj": {}
+    "C:\\Users\\細見 匠弥\\workspace\\project1\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\尾上太一\\Documents\\C#\\work\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj": {
+    "C:\\Users\\細見 匠弥\\workspace\\project1\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\尾上太一\\Documents\\C#\\work\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj",
+        "projectUniqueName": "C:\\Users\\細見 匠弥\\workspace\\project1\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj",
         "projectName": "CreateFigureOOP",
-        "projectPath": "C:\\Users\\尾上太一\\Documents\\C#\\work\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj",
-        "packagesPath": "C:\\Users\\尾上太一\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\尾上太一\\Documents\\C#\\work\\master\\C#\\CreateFigureOOP\\obj\\",
+        "projectPath": "C:\\Users\\細見 匠弥\\workspace\\project1\\master\\C#\\CreateFigureOOP\\CreateFigureOOP.csproj",
+        "packagesPath": "C:\\Users\\細見 匠弥\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\細見 匠弥\\workspace\\project1\\master\\C#\\CreateFigureOOP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\尾上太一\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\細見 匠弥\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
