@@ -1,5 +1,5 @@
 ﻿/// <summary>
-///  
+/// 関数のアクセス修飾子
 /// </summary>
 public enum MethodAccessType
 {
@@ -10,7 +10,7 @@ public enum MethodAccessType
 }
 
 /// <summary>
-/// 
+/// 関数の返値の型
 /// </summary>
 public enum MethodDataType
 {
@@ -20,7 +20,9 @@ public enum MethodDataType
     Double = 4
 }
 
-
+/// <summary>
+/// 関数の引数の型
+/// </summary>
 public enum MethodArgumentType
 {
     Int = 1,

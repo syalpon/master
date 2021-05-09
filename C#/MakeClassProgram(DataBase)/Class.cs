@@ -10,23 +10,6 @@ class Class
     List<Field> _fieldList;
     List<Method> _methodList;
 
-    /*プロパティ*/
-    public int ClassId { get; set; }
-    public string ClassName{
-        get { return _className; }
-        set { _className = value; }
-    }
-    public virtual ICollection<Field> FieldList
-    {
-        get { return _fieldList; }
-        set { _fieldList = (List<Field>)value; }
-    }
-    public virtual ICollection<Method> MethodList 
-    {
-        get { return _methodList; }
-        set { _methodList = (List<Method>)value; }
-    }
-
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -34,7 +17,7 @@ class Class
     public Class(string className)
     {
         _className = className;
-        _fieldList  = new List<Field>();
+        _fieldList  = new List<Field>();  
         _methodList = new List<Method>(); 
     }
 

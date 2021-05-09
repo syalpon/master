@@ -5,36 +5,11 @@ using System.Collections;
 class Method
 {
     /*フィールド*/
-    private List<MethodArgumentType> _argumentTypeList;
+    private List<Argument> _argumentTypeList;
     private MethodAccessType _accessType;
     private MethodDataType _dataType;
     private string _methodName;
-
-    /*プロパティ*/
-    public int MethodId { get; set; }
-    public List<MethodArgumentType> ArgumentTypeList 
-    {
-        get { return _argumentTypeList; }
-        set { _argumentTypeList = value; }
-    }
-    public MethodAccessType AccessType
-    {
-        get { return _accessType; }
-        set { _accessType = value; }
-    }
-    public MethodDataType DataType
-    {
-        get { return _dataType; }
-        set { _dataType = value; }
-    }
-    public string MethodName
-    {
-        get { return _methodName; }
-        set { _methodName = value; }
-    }
-    public virtual Class Class {get;set;}
-
-
+ 
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -42,11 +17,11 @@ class Method
     /// <param name="dataType"></param>
     /// <param name="methodName"></param>
     /// <param name="argumentType"></param>
-    public Method(MethodAccessType accessType, MethodDataType dataType, string methodName, List<MethodArgumentType> argumentTypeList)
+    public Method(MethodAccessType accessType, MethodDataType dataType, string methodName, List<Argument> argumentTypeList)
     {
-        _accessType   = accessType;
-        _dataType     = dataType;
-        _methodName   = methodName;
+        _accessType       = accessType;
+        _dataType         = dataType;
+        _methodName       = methodName;
         _argumentTypeList = argumentTypeList;
     }
 
@@ -81,7 +56,7 @@ class Method
     /// 引数を返す
     /// </summary>
     /// <returns></returns>
-    public List<MethodArgumentType> GetArgumentTypeList()
+    public List<Argument> GetArgumentTypeList()
     {
         return _argumentTypeList;
     }

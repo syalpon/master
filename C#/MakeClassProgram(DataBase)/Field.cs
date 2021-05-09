@@ -7,24 +7,6 @@ class Field
     private FieldDataType _dataType;
     private string  _fieldName;
 
-    /*プロパティ*/
-    public int FieldId { get; set; }
-    public FieldAccessType AccessType
-    {
-        get { return  _accessType; } 
-        set { _accessType = value; }
-    }
-    public FieldDataType DataType
-    {
-        get { return _dataType; }
-        set { _dataType = value; }
-    }
-    public string FieldName
-    {
-        get { return _fieldName; }
-        set { _fieldName = value; }
-    }
-    public virtual Class Class { get; set; }
 
     /// <summary>
     /// 

@@ -64,10 +64,6 @@ class Control
                             // フィールドの追加
                             _model.SetFieldToClass(createdField);
 
-                            // 作成したフィールドをDBに登録 : TODO => モデルに移行
-                            db.FieldDataBase.Add(createdField);
-                            db.SaveChanges();
-
                             // 作成したフィールドがどこに追加されたかを表示する
                             _view.AddFieldShow(_model.GetMakingClass().GetClassName(), createdField);
 
@@ -80,10 +76,6 @@ class Control
 
                             // メソッドの追加
                             _model.SetMethodToClass(createdMethod);
-
-                            // 作成したメソッドをDBに登録 : TODO => モデルに移行
-                            db.MethodDataBase.Add(createdMethod);
-                            db.SaveChanges();
 
                             // 作成したメソッドがどこに追加されたかを表示する
                             _view.AddMethodShow(_model.GetMakingClass().GetClassName(), createdMethod);
@@ -98,8 +90,8 @@ class Control
                 /*作成したクラスを表示*/
                 _model.FinishedCreateClass();
 
-                // 作成したクラスをDBに登録 : TODO => モデルに移行
-                db.ClassDataBase.Add(_model.GetClass());
+                // 作成したクラスをDBに登録
+                db.ClassDataBase.Add(new ClassData(_model.GetClass()));
                 db.SaveChanges();
 
                 _view.ShowClass(_model.GetClass());

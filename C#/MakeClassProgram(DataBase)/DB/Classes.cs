@@ -16,9 +16,10 @@ class Classes : DbContext
     {
     }
 
-    public DbSet<Class> ClassDataBase { set; get; }
-    public DbSet<Method> MethodDataBase { set; get; }
-    public DbSet<Field> FieldDataBase { set; get; }
+    public DbSet<ClassData> ClassDataBase { set; get; }
+    public DbSet<MethodData> MethodDataBase { set; get; }
+    public DbSet<FieldData> FieldDataBase { set; get; }
+    public DbSet<ArgumentData> ArgumentTypeListDataBase { set; get; }
 
     // モデルに含めるエンティティ型ごとに DbSet を追加します。Code First モデルの構成および使用の
     // 詳細については、http://go.microsoft.com/fwlink/?LinkId=390109 を参照してください。

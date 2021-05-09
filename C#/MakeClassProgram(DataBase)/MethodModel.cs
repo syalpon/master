@@ -68,7 +68,15 @@ class MethodModel : Model
     /// <returns>メソッド<returns>
     public Method CreateMethod(int accessTypeSelectNumber, int methodDataTypeSelectNumber, string methodName, List<int> methodArgumentListSelectNumbers)
     {
-        List<MethodArgumentType> methodArgumentList = methodArgumentListSelectNumbers.Cast<MethodArgumentType>().ToList();
+        // List<MethodArgumentType>からList<Argument>へ変換
+        var methodArgumentList = new  List<Argument>();
+        foreach (int methodArgumentListSelectNumber in methodArgumentListSelectNumbers)
+        {
+            var argument = new Argument((MethodArgumentType)methodArgumentListSelectNumber);
+            methodArgumentList.Add(argument);
+        }
+
+        // メソッドクラスのインスタンス生成
         return new Method((MethodAccessType)accessTypeSelectNumber, (MethodDataType) methodDataTypeSelectNumber, methodName, methodArgumentList);
     }
 

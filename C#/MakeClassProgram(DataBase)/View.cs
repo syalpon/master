@@ -141,11 +141,11 @@ class View
             var listLength = method.GetArgumentTypeList().Count();
             for (int i = 0; i < listLength - 1; i++)
             {
-                this.Show(Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[i]) + ",");
+                this.Show(Enum.GetName(typeof(MethodArgumentType), (method.GetArgumentTypeList()[i]).GetMethodArgumentType()) + ",");
             }
             if (listLength != 0) 
             {
-                this.Show(Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[listLength - 1]));
+                this.Show(Enum.GetName(typeof(MethodArgumentType), (method.GetArgumentTypeList()[listLength - 1]).GetMethodArgumentType()));
             }
             this.Show( ") : ");
 
@@ -202,17 +202,18 @@ class View
 
         // 表示する
         this.Show(makingClassName + " に " + accessType + " " + dataType + " " + method.GetMethodName() +  "(" );
-        
+
         // 引数の表示
+                        
         var listLength =  method.GetArgumentTypeList().Count();
         // カンマ区切りで表示
         for(int i = 0 ; i < listLength - 1 ; i++ ){
-            this.Show( Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[i]) + ",");
+            this.Show( Enum.GetName(typeof(MethodArgumentType), (method.GetArgumentTypeList()[i]).GetMethodArgumentType()) + ",");
         }
         // 最後の引数はカンマなし
         if( listLength != 0) 
         {
-            this.Show(Enum.GetName(typeof(MethodArgumentType), method.GetArgumentTypeList()[listLength - 1]));
+            this.Show(Enum.GetName(typeof(MethodArgumentType), (method.GetArgumentTypeList()[listLength - 1]).GetMethodArgumentType()));
         }        
 
         // 表示

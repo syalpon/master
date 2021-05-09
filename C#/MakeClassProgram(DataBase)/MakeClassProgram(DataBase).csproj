@@ -56,17 +56,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\Class.cs" />
+    <Compile Include="Class.cs" />
     <Compile Include="ClassCreater.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="CreateFieldAnswer.cs" />
     <Compile Include="CreateMethodAnswer.cs" />
+    <Compile Include="Argument.cs" />
+    <Compile Include="DB\ArgumentData.cs" />
+    <Compile Include="DB\ClassData.cs" />
+    <Compile Include="DB\MethodData.cs" />
+    <Compile Include="DB\FieldData.cs" />
     <Compile Include="DB\Classes.cs" />
-    <Compile Include="DB\Field.cs" />
+    <Compile Include="Field.cs" />
     <Compile Include="FieldDefinition.cs" />
     <Compile Include="FieldModel.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="DB\Method.cs" />
+    <Compile Include="Method.cs" />
     <Compile Include="MethodDefinition.cs" />
     <Compile Include="MethodModel.cs" />
     <Compile Include="Model.cs" />
