@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// MVCモデルにおけるC:コントロール
+/// </summary>
 class Control
 {
+    /*フィールド*/
 	private Model _model;
     private View _view;
 
@@ -14,7 +18,7 @@ class Control
     }
 
     /// <summary>
-    /// 実行
+    /// 実行処理
     /// </summary>
     public void Run()
     {
@@ -58,7 +62,7 @@ class Control
 
                         // フィールド
                         case 1:
-
+                            // フィールドの作成
                             var createdField = FieldGenerationProcess();
 
                             // フィールドの追加
@@ -71,7 +75,7 @@ class Control
 
                         // メソッド
                         case 2:
-
+                            // メソッドの作成
                             var createdMethod = MethodGenerationProcess();
 
                             // メソッドの追加
@@ -82,28 +86,36 @@ class Control
 
                             break;
 
+                        // その他
                         default: break;
                     }
 
                 } while (selectNumber != 0);
 
-                /*作成したクラスを表示*/
-                _model.FinishedCreateClass();
+                // 作成したクラスをインスタンスに追加
+                _model.SaveTheCreatedClass();
 
                 // 作成したクラスをDBに登録
                 db.ClassDataBase.Add(new ClassData(_model.GetClass()));
                 db.SaveChanges();
 
+                // 作成したクラスを表示
                 _view.ShowClass(_model.GetClass());
             }
+
+            // 作成した全てのクラスを表示する
             _view.ShowAllClass(_model.GetAllClass());
         }
         
     }
     
-
+    /// <summary>
+    /// フィールド生成処理
+    /// </summary>
+    /// <returns></returns>
     private Field FieldGenerationProcess() 
     {
+        // フィールドモデルのインスタンス化
         var fieldModel = _model.CreateFieldModel();
 
         // アクセス修飾子  => accessType
@@ -122,8 +134,13 @@ class Control
         return fieldModel.CreateField(accessTypeSelectNumber, dataTypeSelectNumber, fieldName);
     }
 
+    /// <summary>
+    /// メソッド生成処理
+    /// </summary>
+    /// <returns></returns>
     private Method MethodGenerationProcess()
     {
+        // メソッドモデルのインスタンス化
         var methodModel = _model.CreateMethodModel();
 
         // アクセス修飾子 => accessType
@@ -157,7 +174,10 @@ class Control
     }
 
 
-
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
     internal View View
     {
         get => default;
@@ -167,6 +187,14 @@ class Control
     }
 
     internal Model Model
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal Classes Classes
     {
         get => default;
         set

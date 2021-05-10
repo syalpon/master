@@ -1,5 +1,6 @@
-﻿using System;
-
+﻿/// <summary>
+/// モデルの中でもフィールドのみを扱う処理群クラス
+/// </summary>
 class FieldModel : Model
 {
     /// <summary>

@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
 
+/// <summary>
+/// MVCモデルにおけるM:モデル
+/// </summary>
 class Model
 {
     /*フィールド*/
     protected ClassCreater _classCreater;
-
 
     /// <summary>
     /// コンストラクタ
@@ -16,13 +17,7 @@ class Model
         _classCreater = new ClassCreater();
     }
 
-    internal ClassCreater ClassCreater
-    {
-        get => default;
-        set
-        {
-        }
-    }
+
 
     /// <summary>
     /// クラスの追加(インスタンス化)
@@ -34,13 +29,12 @@ class Model
     }
 
     /// <summary>
-    /// クラスの決定通知
+    /// 作成したクラスをclassCreaterのインスタンスに追加
     /// </summary>
-    public void FinishedCreateClass()
+    public void SaveTheCreatedClass()
     {
-        _classCreater.FinishedCreateClass();
+        _classCreater.SaveTheCreatedClass();
     }
-
 
     /// <summary>
     /// ジェネリックで各Enumの文字列を取得する
@@ -58,8 +52,6 @@ class Model
         return choices;
     }
 
-
-
     /// <summary>
     /// 作成中のクラスを取得する
     /// </summary>
@@ -75,7 +67,7 @@ class Model
     /// <returns></returns>
     public Class GetClass()
     {
-        return _classCreater.GetClass();
+        return _classCreater.GetLastAddedClass();
     }
 
 
@@ -126,7 +118,7 @@ class Model
     }
 
     /// <summary>
-    /// 
+    /// フィールドモデルのインスタンス化
     /// </summary>
     /// <returns></returns>
     public FieldModel CreateFieldModel()
@@ -135,7 +127,7 @@ class Model
     }
 
     /// <summary>
-    /// 
+    /// メソッドモデルのインスタンス化
     /// </summary>
     /// <returns></returns>
     public MethodModel CreateMethodModel()
@@ -186,5 +178,17 @@ class Model
     }
 
 
+
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
+    internal ClassCreater ClassCreater
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }
 

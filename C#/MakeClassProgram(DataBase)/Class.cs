@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// 作成するクラスのデータを保持するクラス
+/// </summary>
 class Class
 {
     /*フィールド*/
@@ -49,36 +50,60 @@ class Class
     }
 
     /// <summary>
-    /// 最新で追加したフィールドを取得する
+    /// 追加した最新フィールドを取得する
     /// </summary>
     /// <returns></returns>
-    public Field GetField()
+    public Field GetTheLastAddedField()
     {
         return _fieldList.Last();
     }
 
     /// <summary>
-    /// 最新で追加したメソッドを取得する
+    /// 追加した最新のメソッドを取得する
     /// </summary>
     /// <returns></returns>
-    public Method GetMethod()
+    public Method GetTheLastAddedMethod()
     {
         return _methodList.Last();
     }
 
-
     /// <summary>
-    /// リスト全体を返す
+    /// 作成したフィールド全てを取得する
     /// </summary>
     /// <returns></returns>
-    public List<Field> GetFieldList()
+    public List<Field> GetAllFields()
     {
         return _fieldList;
     }
 
-
-    public List<Method> GetMethodList()
+    /// <summary>
+    /// 作成したメソッド全てを取得する
+    /// </summary>
+    /// <returns></returns>
+    public List<Method> GetAllMethods()
     {
         return _methodList;
+    }
+
+
+
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
+    internal Field Field
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal Method Method
+    {
+        get => default;
+        set
+        {
+        }
     }
 }

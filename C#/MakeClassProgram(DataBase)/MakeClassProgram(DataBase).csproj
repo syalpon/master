@@ -59,8 +59,6 @@
     <Compile Include="Class.cs" />
     <Compile Include="ClassCreater.cs" />
     <Compile Include="Control.cs" />
-    <Compile Include="CreateFieldAnswer.cs" />
-    <Compile Include="CreateMethodAnswer.cs" />
     <Compile Include="Argument.cs" />
     <Compile Include="DB\ArgumentData.cs" />
     <Compile Include="DB\ClassData.cs" />
@@ -80,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

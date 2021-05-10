@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections.Generic;
 
+/// <summary>
+/// メソッドのデータを保持するクラス
+/// </summary>
 class Method
 {
     /*フィールド*/
@@ -49,7 +50,7 @@ class Method
     /// <returns></returns>
     public MethodDataType GetDataType()
     {
-        return  _dataType;
+        return _dataType;
     }
 
     /// <summary>
@@ -61,4 +62,34 @@ class Method
         return _argumentTypeList;
     }
 
+
+
+
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
+    internal Argument Argument
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public MethodDataType MethodDataType
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public MethodAccessType MethodAccessType
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }

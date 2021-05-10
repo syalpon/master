@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 
+/// <summary>
+/// MVCモデルにおけるV:View
+/// </summary>
 class View 
 {
     /*コンストラクタ*/
     public View()
     {
-
     }
 
     /// <summary>
@@ -114,7 +115,7 @@ class View
         this.Show(c.GetClassName());        
         this.Show("\n----------------\n");
 
-        foreach(Field field in c.GetFieldList())
+        foreach(Field field in c.GetAllFields())
         {
             // 追加したフィールドのアクセス修飾子
             this.Show(" " + symbol[Enum.GetName(typeof(FieldAccessType), field.GetAccessType())] + " ") ;
@@ -129,7 +130,7 @@ class View
 
         this.Show("----------------\n");
 
-        foreach (Method method in c.GetMethodList())
+        foreach (Method method in c.GetAllMethods())
         {
             // 追加したメソッドのアクセス修飾子
             this.Show(" " + symbol[Enum.GetName(typeof(MethodAccessType), method.GetAccessType())] + " ");

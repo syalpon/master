@@ -1,5 +1,6 @@
-using System;
-
+/// <summary>
+/// フィールドの情報を保持するクラス
+/// </summary>
 class Field
 {
     /*フィールド*/
@@ -7,9 +8,8 @@ class Field
     private FieldDataType _dataType;
     private string  _fieldName;
 
-
     /// <summary>
-    /// 
+    /// コンストラクタ
     /// </summary>
     /// <param name="accessType"></param>
     /// <param name="dataType"></param>
@@ -17,12 +17,12 @@ class Field
     public Field (FieldAccessType accessType, FieldDataType dataType, string fieldName)
     {
         _accessType = accessType;
-        _dataType  = dataType;
-        _fieldName = fieldName;
+        _dataType   = dataType;
+        _fieldName  = fieldName;
     }
 
     /// <summary>
-    /// 
+    /// フィールドのアクセス修飾子を取得する
     /// </summary>
     /// <returns></returns>
     public FieldAccessType GetAccessType()
@@ -31,7 +31,7 @@ class Field
     }
 
     /// <summary>
-    /// 
+    /// フィールドの型を取得する
     /// </summary>
     /// <returns></returns>
     public FieldDataType GetDataType()
@@ -40,11 +40,33 @@ class Field
     }
 
     /// <summary>
-    /// 
+    /// フィールドの名前を取得する
     /// </summary>
     /// <returns></returns>
     public string GetFieldName()
     {
         return _fieldName;
     }
+
+
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
+    public FieldAccessType FieldAccessType
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public FieldDataType FieldDataType
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
 }

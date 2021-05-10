@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// モデルの中でもメソッドを扱う処理群クラス
+/// </summary>
 class MethodModel : Model
 {
     /// <summary>

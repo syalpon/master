@@ -1,10 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 
+/// <summary>
+/// 作成したクラス群を保持するクラス
+/// </summary>
 class ClassCreater
 {
+    /*フィールド*/
     private Class _class;
     private List<Class> _classList;
 
@@ -45,9 +47,9 @@ class ClassCreater
     }
 
     /// <summary>
-    /// クラス作成完了時処理。リストに完成したクラスを保存する
+    /// インスタンスのクラスリストに作成完了したクラスを保存する
     /// </summary>
-    public void FinishedCreateClass()
+    public void SaveTheCreatedClass()
     {
         _classList.Add(_class);
     }
@@ -56,7 +58,7 @@ class ClassCreater
     /// 登録しているクラスネームを取得する
     /// </summary>
     /// <returns></returns>
-    public string GetClassName()
+    public string GetTheLastAddedClassName()
     {
         return _class.GetClassName();
     }
@@ -65,7 +67,7 @@ class ClassCreater
     /// 最新の追加されたクラスを取得する
     /// </summary>
     /// <returns></returns>
-    public Class GetClass()
+    public Class GetLastAddedClass()
     {
         return _classList.Last();
     }
@@ -104,12 +106,10 @@ class ClassCreater
 
 
 
-
-
-
-
-
-
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
     internal Field Field
     {
         get => default;
@@ -119,6 +119,14 @@ class ClassCreater
     }
 
     internal Method Method
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal Class Class
     {
         get => default;
         set

@@ -1,34 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 
+/// <summary>
+/// データベース登録用のクラス
+/// </summary>
 class Classes : DbContext
 {
-    // コンテキストは、アプリケーションの構成ファイル (App.config または Web.config) から 'Model1' 
-    // 接続文字列を使用するように構成されています。既定では、この接続文字列は LocalDb インスタンス上
-    // の 'MakeClassProgram_DataBase_.DB.Model1' データベースを対象としています。 
-    // 
-    // 別のデータベースとデータベース プロバイダーまたはそのいずれかを対象とする場合は、
-    // アプリケーション構成ファイルで 'Model1' 接続文字列を変更してください。
-    public Classes()
-        : base("name=Classes")
-    {
-    }
-
+    /*プロパティ*/
     public DbSet<ClassData> ClassDataBase { set; get; }
     public DbSet<MethodData> MethodDataBase { set; get; }
     public DbSet<FieldData> FieldDataBase { set; get; }
     public DbSet<ArgumentData> ArgumentTypeListDataBase { set; get; }
 
-    // モデルに含めるエンティティ型ごとに DbSet を追加します。Code First モデルの構成および使用の
-    // 詳細については、http://go.microsoft.com/fwlink/?LinkId=390109 を参照してください。
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    public Classes()
+        : base("name=Classes")
+    {
+    }
 
-    // public virtual DbSet<MyEntity> MyEntities { get; set; }
+
+
+    /*-----------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// クラス図作成用
+    /// </summary>
+    internal ClassData ClassData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal FieldData FieldData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal MethodData MethodData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal ArgumentData ArgumentData
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }
-
-//public class MyEntity
-//{
-//    public int Id { get; set; }
-//    public string Name { get; set; }
-//}
