@@ -15,11 +15,11 @@ class Class
     /// コンストラクタ
     /// </summary>
     /// <param name="className"></param>
-    public Class(string className)
+    public Class(string className, List<Field> fieldList, List<Method> methodList)
     {
         _className = className;
-        _fieldList  = new List<Field>();  
-        _methodList = new List<Method>(); 
+        _fieldList  = fieldList;  
+        _methodList = methodList; 
     }
 
     /// <summary>
@@ -86,24 +86,4 @@ class Class
     }
 
 
-
-    /*-----------------------------------------------------------------------------------------------------------------------------*/
-    /// <summary>
-    /// クラス図作成用
-    /// </summary>
-    internal Field Field
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    internal Method Method
-    {
-        get => default;
-        set
-        {
-        }
-    }
 }

@@ -67,6 +67,7 @@ class View
 
     /// <summary>
     /// クラス名を入力してもらう際の入力
+    /// ViewでDBを検索しているのが微妙  /// 
     /// </summary>
     /// <returns></returns>
     public string GetClassNameMessege(List<string> classNameList)

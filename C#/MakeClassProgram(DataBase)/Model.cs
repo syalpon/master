@@ -7,17 +7,15 @@ using System.Collections.Generic;
 class Model
 {
     /*フィールド*/
-    protected ClassCreater _classCreater;
+    //protected ClassCreater _classCreater;
 
     /// <summary>
     /// コンストラクタ
     /// </summary>
     public Model()
     {
-        _classCreater = new ClassCreater();
+        //_classCreater = new ClassCreater();
     }
-
-
 
     /// <summary>
     /// クラスの追加(インスタンス化)
@@ -25,7 +23,7 @@ class Model
     /// <param name="msg"></param>
     public void CreateNewClass(string className)
     {
-        _classCreater.CreateNewClass(className);
+        //ClassCreater.CreateNewClass(className);
     }
 
     /// <summary>
@@ -33,7 +31,7 @@ class Model
     /// </summary>
     public void SaveTheCreatedClass()
     {
-        _classCreater.SaveTheCreatedClass();
+        //_classCreater.SaveTheCreatedClass();
     }
 
     /// <summary>
@@ -47,29 +45,10 @@ class Model
         foreach (int Value in Enum.GetValues(typeof(T)))
         {
             string name = Enum.GetName(typeof(T), Value);
-            choices[Value-1] = name;
+            choices[Value - 1] = name;
         }
         return choices;
     }
-
-    /// <summary>
-    /// 作成中のクラスを取得する
-    /// </summary>
-    /// <returns></returns>
-    public Class GetMakingClass()
-    {
-        return _classCreater.GetMakingClass();
-    }
-
-    /// <summary>
-    /// クラスを取得する
-    /// </summary>
-    /// <returns></returns>
-    public Class GetClass()
-    {
-        return _classCreater.GetLastAddedClass();
-    }
-
 
     /// <summary>
     /// 「クラス図を作成をします。(Escキーで終了)」を返す
@@ -77,7 +56,7 @@ class Model
     /// <returns></returns>
     public string GetFirstContext()
     {
-       return  "クラス図を作成をします。\n";
+        return "クラス図を作成をします。\n";
     }
 
     /// <summary>
@@ -86,7 +65,7 @@ class Model
     /// <returns></returns>
     public string[] GetFieldAndMethodSelection()
     {
-        string[] choices = {"フィールド", "メソッド"};
+        string[] choices = { "フィールド", "メソッド" };
         return choices;
     }
 
@@ -132,63 +111,7 @@ class Model
     /// <returns></returns>
     public MethodModel CreateMethodModel()
     {
-        return new MethodModel(); 
+        return new MethodModel();
 
-    }
-
-    /// <summary>
-    /// 作成した全てのクラスを返す
-    /// </summary>
-    /// <returns></returns>
-    public List<Class> GetAllClass() 
-    {
-        return _classCreater.GetAllClass();
-    }
-
-    /// <summary>
-    /// 作成した全てのクラス名を返す
-    /// </summary>
-    /// <returns></returns>
-    public List<string> GetAllClassName()
-    {
-        return _classCreater.GetAllClassName();
-    }
-
-    /// <summary>
-    /// 決定したフィールドを追加する
-    /// </summary>
-    /// <param name="accessType"></param>
-    /// <param name="dataType"></param>
-    /// <param name="fieldName"></param>
-    public void SetFieldToClass(Field field)
-    {
-        _classCreater.SetFieldToClass(field);
-    }
-
-    /// <summary>
-    /// クラスにメソッド追加する
-    /// </summary>
-    /// <param name="accessType"></param>
-    /// <param name="dataType"></param>
-    /// <param name="methodName"></param>
-    /// <param name="methodArgumentList"></param>
-    public void SetMethodToClass(Method method)
-    {
-        _classCreater.SetMethodToClass(method);
-    }
-
-
-
-    /*-----------------------------------------------------------------------------------------------------------------------------*/
-    /// <summary>
-    /// クラス図作成用
-    /// </summary>
-    internal ClassCreater ClassCreater
-    {
-        get => default;
-        set
-        {
-        }
     }
 }
-

@@ -34,6 +34,7 @@ class MethodData
 
     }
 
+    public MethodData() { }
 
 
 }

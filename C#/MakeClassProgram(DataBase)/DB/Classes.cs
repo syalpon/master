@@ -20,40 +20,4 @@ class Classes : DbContext
     }
 
 
-
-    /*-----------------------------------------------------------------------------------------------------------------------------*/
-    /// <summary>
-    /// クラス図作成用
-    /// </summary>
-    internal ClassData ClassData
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    internal FieldData FieldData
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    internal MethodData MethodData
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
-    internal ArgumentData ArgumentData
-    {
-        get => default;
-        set
-        {
-        }
-    }
 }

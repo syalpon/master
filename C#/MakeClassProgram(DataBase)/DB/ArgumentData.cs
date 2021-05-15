@@ -19,6 +19,6 @@ class ArgumentData
         MethodArgumentType = Enum.GetName(typeof(MethodArgumentType), argument.GetMethodArgumentType());
     }
 
-
+    public ArgumentData() { }
 }
 

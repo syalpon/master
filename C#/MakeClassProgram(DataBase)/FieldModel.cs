@@ -3,6 +3,14 @@
 /// </summary>
 class FieldModel : Model
 {
+    internal Field Field
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// アクセス修飾子の選択肢を返す
     /// </summary>

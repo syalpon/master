@@ -24,6 +24,7 @@ class FieldData
         FieldName = field.GetFieldName();
     }
 
+    public FieldData() { }
 
 
 }

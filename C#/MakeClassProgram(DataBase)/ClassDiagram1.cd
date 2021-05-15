@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Argument" Collapsed="true">
-    <Position X="25.5" Y="7.75" Width="1.5" />
+    <Position X="25.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Argument.cs</FileName>
@@ -11,143 +11,64 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Class" Collapsed="true">
-    <Position X="23.75" Y="4.5" Width="1.5" />
-    <AssociationLine Name="Field" Type="Field" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="23.75" Y="4.812" />
-        <Point X="22.5" Y="4.812" />
-        <Point X="22.5" Y="5.75" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Method" Type="Method" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="25.25" Y="4.812" />
-        <Point X="26.25" Y="4.812" />
-        <Point X="26.25" Y="5.75" />
-      </Path>
-    </AssociationLine>
+    <Position X="29.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAFEAAAgAAABAAAgAAAAAAAAoAAAABAEAAAAgAA=</HashCode>
+      <HashCode>ACAAAAFEAAAgAAABAAAAAAAAAAAAoAAAABAEAAAAAAA=</HashCode>
       <FileName>Class.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Field" />
-      <Property Name="Method" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ClassCreater" Collapsed="true">
-    <Position X="23.75" Y="2.75" Width="1.5" />
-    <AssociationLine Name="Class" Type="Class" FixedFromPoint="true">
-      <Path>
-        <Point X="24.688" Y="3.312" />
-        <Point X="24.688" Y="4.5" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.052" Y="-0.009" />
-      </MemberNameLabel>
-    </AssociationLine>
+    <Position X="25.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQEAAAAAAAIABAAAAMgABAAQAAAAAAAAAAABAAAgxA=</HashCode>
+      <HashCode>AAQAAAAAAAAIABAAAAAgAAAAAAAAAAAAAAAABAAAgBA=</HashCode>
       <FileName>ClassCreater.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Class" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Control" Collapsed="true">
     <Position X="15.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAAAAgAAAIAAAAABAAAAACgAAAAAEAI=</HashCode>
+      <HashCode>AAAAAAAAAAEAAAAAAgAAAIAAAAABEAAAACgAAAAAEAI=</HashCode>
       <FileName>Control.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="View" />
       <Property Name="Model" />
-      <Property Name="Classes" />
     </ShowAsAssociation>
   </Class>
   <Class Name="ArgumentData" Collapsed="true">
-    <Position X="12.75" Y="5.25" Width="1.5" />
+    <Position X="24.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DB\ArgumentData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassData" Collapsed="true">
-    <Position X="18.75" Y="5.25" Width="1.5" />
+    <Position X="29.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>DB\ClassData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Classes" Collapsed="true">
-    <Position X="15.75" Y="3.75" Width="1.5" />
-    <AssociationLine Name="ClassData" Type="ClassData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="16.938" Y="4.441" />
-        <Point X="16.938" Y="4.634" />
-        <Point X="19.5" Y="4.634" />
-        <Point X="19.5" Y="5.25" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="FieldData" Type="FieldData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="16.188" Y="4.441" />
-        <Point X="16.188" Y="4.951" />
-        <Point X="15.5" Y="4.951" />
-        <Point X="15.5" Y="5.25" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="MethodData" Type="MethodData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="16.75" Y="4.441" />
-        <Point X="16.75" Y="4.93" />
-        <Point X="17.5" Y="4.93" />
-        <Point X="17.5" Y="5.25" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="ArgumentData" Type="ArgumentData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="15.875" Y="4.441" />
-        <Point X="15.875" Y="4.632" />
-        <Point X="13.5" Y="4.632" />
-        <Point X="13.5" Y="5.25" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.14" Y="0.03" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAgAAAAAAABIAAAAAAABAAAAAAAAAAAEAAAAQEEAAAA=</HashCode>
-      <FileName>DB\Classes.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ClassData" />
-      <Property Name="FieldData" />
-      <Property Name="MethodData" />
-      <Property Name="ArgumentData" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="FieldData" Collapsed="true">
-    <Position X="14.75" Y="5.25" Width="1.5" />
+    <Position X="21.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAJAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DB\FieldData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MethodData" Collapsed="true">
-    <Position X="16.75" Y="5.25" Width="1.5" />
+    <Position X="26.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIACAAAAAAJAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>DB\MethodData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Field" Collapsed="true">
-    <Position X="21.75" Y="5.75" Width="1.5" />
+    <Position X="21.5" Y="5" Width="1.5" />
     <AssociationLine Name="FieldAccessType" Type="FieldAccessType" FixedFromPoint="true">
       <Path>
-        <Point X="23" Y="6.312" />
-        <Point X="23" Y="6.75" />
+        <Point X="22.75" Y="5.562" />
+        <Point X="22.75" Y="6" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="-1.296" Y="0.106" />
@@ -163,11 +84,20 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FieldModel" Collapsed="true">
-    <Position X="18.75" Y="3.75" Width="1.5" />
+    <Position X="21.5" Y="3.75" Width="1.5" />
+    <AssociationLine Name="Field" Type="Field" FixedFromPoint="true">
+      <Path>
+        <Point X="22.375" Y="4.441" />
+        <Point X="22.375" Y="5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAEAAAAgAA=</HashCode>
       <FileName>FieldModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Field" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MainClass" Collapsed="true">
     <Position X="15.75" Y="1.75" Width="1.5" />
@@ -180,7 +110,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Method" Collapsed="true">
-    <Position X="25.5" Y="5.75" Width="1.5" />
+    <Position X="25.5" Y="5" Width="1.5" />
     <AssociationLine Name="MethodAccessType" Type="MethodAccessType">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="-1.472" Y="0.087" />
@@ -197,21 +127,21 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="MethodModel" Collapsed="true">
-    <Position X="20.75" Y="3.75" Width="1.5" />
+    <Position X="25.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAABAAAAAAIAAAAAAAAAAAAAQAAAAAIAAAAABAg=</HashCode>
+      <HashCode>AAEAAAABAAAAAAIAAAAgAAAAAAAAQAAAAAIAAAAABAg=</HashCode>
       <FileName>MethodModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Method" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Model" Collapsed="true">
-    <Position X="19.75" Y="2.75" Width="1.5" />
+    <Position X="25.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAEAAIABAAAAUEABEASAIAAAABAAhABAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAEABEAQAIAAAABAABAAAAAAQA=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ClassCreater" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="View" Collapsed="true">
     <Position X="13" Y="2.75" Width="1.5" />
@@ -220,36 +150,46 @@
       <FileName>View.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ClassModel" Collapsed="true">
+    <Position X="29.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>ClassModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Class" />
+    </ShowAsAssociation>
+  </Class>
   <Enum Name="FieldAccessType" Collapsed="true">
-    <Position X="22.75" Y="6.75" Width="1.5" />
+    <Position X="22.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>FieldDefinition.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="FieldDataType" Collapsed="true">
-    <Position X="20.75" Y="6.75" Width="1.5" />
+    <Position X="20.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAACA=</HashCode>
       <FileName>FieldDefinition.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MethodAccessType" Collapsed="true">
-    <Position X="26.5" Y="6.75" Width="1.5" />
+    <Position X="26.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIEAAAAAEAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>MethodDefinition.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MethodDataType" Collapsed="true">
-    <Position X="24.5" Y="6.75" Width="1.5" />
+    <Position X="24.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAACACA=</HashCode>
       <FileName>MethodDefinition.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MethodArgumentType" Collapsed="true">
-    <Position X="25.5" Y="8.75" Width="1.5" />
+    <Position X="25.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAACA=</HashCode>
       <FileName>MethodDefinition.cs</FileName>

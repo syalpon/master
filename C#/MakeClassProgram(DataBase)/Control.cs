@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 /// <summary>
@@ -38,15 +39,19 @@ class Control
                 // すでに登録されていないクラスネームであり、
                 // アンダースコア(_)または大文字英字始まりの文字列もしくはエンターのみで入力を貰う
                 // エンターのみの場合空文字が受け取られる
-                var message = _view.GetClassNameMessege(existClassNameList) ;
+                var className = _view.GetClassNameMessege(existClassNameList) ;
 
-                if (message == "")
+                if (className == "")
                 {
                     break;
                 }
 
                 /* クラスをインスタンス化してクラスネームの追加 */
-                _model.CreateNewClass(message);
+                //_model.CreateNewClass(message);
+
+                /* リスト変数の宣言 */
+                var methodList = new List<Method>();
+                var fieldList  = new List<Field>();
 
                 // ユーザの選択した選択肢番号を宣言
                 int selectNumber;
@@ -66,10 +71,13 @@ class Control
                             var createdField = FieldGenerationProcess();
 
                             // フィールドの追加
-                            _model.SetFieldToClass(createdField);
+                            // _model.SetFieldToClass(createdField);
 
                             // 作成したフィールドがどこに追加されたかを表示する
-                            _view.AddFieldShow(_model.GetMakingClass().GetClassName(), createdField);
+                            _view.AddFieldShow(className, createdField);
+
+                            // 作成したフィードを登録
+                            fieldList.Add(createdField);
 
                             break;
 
@@ -79,10 +87,13 @@ class Control
                             var createdMethod = MethodGenerationProcess();
 
                             // メソッドの追加
-                            _model.SetMethodToClass(createdMethod);
+                            // _model.SetMethodToClass(createdMethod);
 
                             // 作成したメソッドがどこに追加されたかを表示する
-                            _view.AddMethodShow(_model.GetMakingClass().GetClassName(), createdMethod);
+                            _view.AddMethodShow(className, createdMethod);
+
+                            // 作成したメソッドを登録
+                            methodList.Add(createdMethod);
 
                             break;
 
@@ -93,22 +104,40 @@ class Control
                 } while (selectNumber != 0);
 
                 // 作成したクラスをインスタンスに追加
-                _model.SaveTheCreatedClass();
+                // _model.SaveTheCreatedClass();
+
+                var madeClass = ClassGenerationProcess(className, fieldList, methodList);
 
                 // 作成したクラスをDBに登録
-                db.ClassDataBase.Add(new ClassData(_model.GetClass()));
+                db.ClassDataBase.Add(new ClassData(madeClass));
                 db.SaveChanges();
 
                 // 作成したクラスを表示
-                _view.ShowClass(_model.GetClass());
+                _view.ShowClass(madeClass);
             }
 
             // 作成した全てのクラスを表示する
-            _view.ShowAllClass(_model.GetAllClass());
+            //var ClassNameList = db.ClassDataBase.ToList();
+
+            var idList = db.MethodDataBase.Include(nameof(ClassData)).ToList();
+            _view.Show(idList[0].AccessType);
+            _view.Show(idList[1].ToString());
+
         }
-        
+
     }
-    
+
+    /// <summary>
+    /// クラス生成処理
+    /// </summary>
+    /// <returns></returns>
+    private Class ClassGenerationProcess(string className, List<Field> fieldList, List<Method> methodList) 
+    {
+        var classModel = new ClassModel();
+        return classModel.CreateClass(className, fieldList, methodList);
+    }
+
+
     /// <summary>
     /// フィールド生成処理
     /// </summary>

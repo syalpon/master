@@ -7,6 +7,14 @@ using System.Linq;
 /// </summary>
 class MethodModel : Model
 {
+    internal Method Method
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// アクセス修飾子の選択肢を返す
     /// </summary>

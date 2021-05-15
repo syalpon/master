@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class.cs" />
+    <Compile Include="ClassModel.cs" />
     <Compile Include="ClassCreater.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="Argument.cs" />
