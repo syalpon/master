@@ -1,55 +1,7 @@
-using System;
-using System.Collections.Generic;
+﻿
 
-/// <summary>
-/// MVCモデルにおけるM:モデル
-/// </summary>
 class Model
-{
-    /*フィールド*/
-    //protected ClassCreater _classCreater;
-
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    public Model()
-    {
-        //_classCreater = new ClassCreater();
-    }
-
-    /// <summary>
-    /// クラスの追加(インスタンス化)
-    /// </summary>
-    /// <param name="msg"></param>
-    public void CreateNewClass(string className)
-    {
-        //ClassCreater.CreateNewClass(className);
-    }
-
-    /// <summary>
-    /// 作成したクラスをclassCreaterのインスタンスに追加
-    /// </summary>
-    public void SaveTheCreatedClass()
-    {
-        //_classCreater.SaveTheCreatedClass();
-    }
-
-    /// <summary>
-    /// ジェネリックで各Enumの文字列を取得する
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
-    protected string[] GetSelection<T>()
-    {
-        string[] choices = new string[Enum.GetNames(typeof(T)).Length];
-        foreach (int Value in Enum.GetValues(typeof(T)))
-        {
-            string name = Enum.GetName(typeof(T), Value);
-            choices[Value - 1] = name;
-        }
-        return choices;
-    }
-
+{ 
     /// <summary>
     /// 「クラス図を作成をします。(Escキーで終了)」を返す
     /// </summary>
@@ -79,39 +31,54 @@ class Model
     }
 
     /// <summary>
-    /// 「アクセス修飾子を入力してください。」を返す
+    /// 各モデルへのスイッチング
     /// </summary>
-    /// <returns></returns>
-    public string GetInputAccessor()
+    /// <param name="selectNumber"></param>
+    public bool Generator(int selectNumber, Class createClass)
     {
-        return "アクセス修飾子を入力してください。\n";
+        bool flag = true;
+        switch (selectNumber)
+        {
+            // 終了
+            case 0:
+                flag = false;
+                break;
+
+            // フィールド
+            case 1:
+                var fieldModel = new FieldModel();
+                var field = fieldModel.FieldGenerationProcess();
+                fieldModel.AddToClass(field, createClass);
+
+                break;
+
+            // メソッド
+            case 2:
+                var methodModel = new MethodModel();
+                var method = methodModel.MethodGenerationProcess();
+                methodModel.AddToClass(method, createClass);
+
+                break;
+
+            // その他
+            default: 
+                // Not Reached
+                break;
+        }
+
+        return flag;
     }
 
     /// <summary>
-    /// 「型名を選択してください。」を返す
+    /// クラスのインスタンス化
     /// </summary>
+    /// <param name="className"></param>
     /// <returns></returns>
-    public string GetInputType()
+    public Class CreateClass(string className)
     {
-        return "型名を選択してください。\n";
+        var classModel = new ClassModel();
+        return classModel.CreateClass(className);
     }
 
-    /// <summary>
-    /// フィールドモデルのインスタンス化
-    /// </summary>
-    /// <returns></returns>
-    public FieldModel CreateFieldModel()
-    {
-        return new FieldModel();
-    }
-
-    /// <summary>
-    /// メソッドモデルのインスタンス化
-    /// </summary>
-    /// <returns></returns>
-    public MethodModel CreateMethodModel()
-    {
-        return new MethodModel();
-
-    }
 }
+

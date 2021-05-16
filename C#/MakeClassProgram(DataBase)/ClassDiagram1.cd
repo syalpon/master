@@ -13,32 +13,14 @@
   <Class Name="Class" Collapsed="true">
     <Position X="29.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAFEAAAgAAABAAAAAAAAAAAAoAAAABAEAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>Class.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="ClassCreater" Collapsed="true">
-    <Position X="25.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAIABAAAAAgAAAAAAAAAAAAAAAABAAAgBA=</HashCode>
-      <FileName>ClassCreater.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Control" Collapsed="true">
-    <Position X="15.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAAAAgAAAIAAAAABEAAAACgAAAAAEAI=</HashCode>
-      <FileName>Control.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="View" />
-      <Property Name="Model" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ArgumentData" Collapsed="true">
     <Position X="24.5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAgCAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DB\ArgumentData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -92,7 +74,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAEAAAAgAA=</HashCode>
+      <HashCode>QAAAAAAAAAQAAAgAAAAAQAAAAAAAAAAAAAAEAAAAkAA=</HashCode>
       <FileName>FieldModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -105,9 +87,6 @@
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Main.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Control" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Method" Collapsed="true">
     <Position X="25.5" Y="5" Width="1.5" />
@@ -129,18 +108,18 @@
   <Class Name="MethodModel" Collapsed="true">
     <Position X="25.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAABAAAAAAIAAAAgAAAAAAAAQAAAAAIAAAAABAg=</HashCode>
+      <HashCode>AAEAAAABAAQAAAIAAAAgAIAAAAAAQAAAAAIAAAAABAg=</HashCode>
       <FileName>MethodModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Method" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Model" Collapsed="true">
+  <Class Name="CommonModel" Collapsed="true">
     <Position X="25.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAEABEAQAIAAAABAABAAAAAAQA=</HashCode>
-      <FileName>Model.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAIAAAAAACBAAAAAAAA=</HashCode>
+      <FileName>CommonModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="View" Collapsed="true">
@@ -153,12 +132,30 @@
   <Class Name="ClassModel" Collapsed="true">
     <Position X="29.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ClassModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Class" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="Control" Collapsed="true">
+    <Position X="15.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAgAAAAAAAAABAAAIACgAAAAAAAI=</HashCode>
+      <FileName>Control.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="View" />
+      <Property Name="Model1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model" Collapsed="true">
+    <Position X="19.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAQAAAACAAAAAAAAAAAAAABAAAAAAAAAQA=</HashCode>
+      <FileName>Model.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Enum Name="FieldAccessType" Collapsed="true">
     <Position X="22.5" Y="6" Width="1.5" />

@@ -21,11 +21,11 @@ class ClassData
     /// <param name="c"></param>
     public ClassData(Class c)
     {
-        ClassName = c.GetClassName();
+        ClassName = c.ClassName;
 
         // フィールドをDB用のデータに変換して保持
         var fieldlist = new List<FieldData>();
-        foreach (Field field in c.GetAllFields())
+        foreach (Field field in c.FieldList)
         {
             fieldlist.Add(new FieldData(field));
         }
@@ -33,7 +33,7 @@ class ClassData
 
         // メソッドをDB用のデータに変換して保持
         var methodlist = new List<MethodData>();
-        foreach (Method method in c.GetAllMethods())
+        foreach (Method method in c.MethodList)
         {
             methodlist.Add(new MethodData(method));
         }

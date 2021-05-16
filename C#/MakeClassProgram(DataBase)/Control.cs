@@ -39,168 +39,79 @@ class Control
                 // すでに登録されていないクラスネームであり、
                 // アンダースコア(_)または大文字英字始まりの文字列もしくはエンターのみで入力を貰う
                 // エンターのみの場合空文字が受け取られる
-                var className = _view.GetClassNameMessege(existClassNameList) ;
+                var className = _view.GetClassNameMessege(existClassNameList);
 
                 if (className == "")
                 {
                     break;
                 }
 
-                /* クラスをインスタンス化してクラスネームの追加 */
-                //_model.CreateNewClass(message);
+                var createClass = _model.CreateClass(className);
 
-                /* リスト変数の宣言 */
-                var methodList = new List<Method>();
-                var fieldList  = new List<Field>();
-
-                // ユーザの選択した選択肢番号を宣言
-                int selectNumber;
-
-                do {
-                    /* 選択肢の表示 */
-                    selectNumber = _view.SelectNumberWithExit(_model.GetFieldAndMethodSelection());
-                    switch (selectNumber)
+                while(true)
+                {
+                    bool flag = _model.Generator(_view.SelectNumberWithExit(_model.GetFieldAndMethodSelection()), createClass);
+                    if (!flag)
                     {
-                        // 終了
-                        case 0:
-                            break;
-
-                        // フィールド
-                        case 1:
-                            // フィールドの作成
-                            var createdField = FieldGenerationProcess();
-
-                            // フィールドの追加
-                            // _model.SetFieldToClass(createdField);
-
-                            // 作成したフィールドがどこに追加されたかを表示する
-                            _view.AddFieldShow(className, createdField);
-
-                            // 作成したフィードを登録
-                            fieldList.Add(createdField);
-
-                            break;
-
-                        // メソッド
-                        case 2:
-                            // メソッドの作成
-                            var createdMethod = MethodGenerationProcess();
-
-                            // メソッドの追加
-                            // _model.SetMethodToClass(createdMethod);
-
-                            // 作成したメソッドがどこに追加されたかを表示する
-                            _view.AddMethodShow(className, createdMethod);
-
-                            // 作成したメソッドを登録
-                            methodList.Add(createdMethod);
-
-                            break;
-
-                        // その他
-                        default: break;
+                        break;
                     }
-
-                } while (selectNumber != 0);
-
-                // 作成したクラスをインスタンスに追加
-                // _model.SaveTheCreatedClass();
-
-                var madeClass = ClassGenerationProcess(className, fieldList, methodList);
-
+                }
+                
                 // 作成したクラスをDBに登録
-                db.ClassDataBase.Add(new ClassData(madeClass));
+                db.ClassDataBase.Add(new ClassData(createClass));
                 db.SaveChanges();
 
                 // 作成したクラスを表示
-                _view.ShowClass(madeClass);
+                _view.ShowClass(createClass);
             }
 
-            // 作成した全てのクラスを表示する
-            //var ClassNameList = db.ClassDataBase.ToList();
-
-            var idList = db.MethodDataBase.Include(nameof(ClassData)).ToList();
-            _view.Show(idList[0].AccessType);
-            _view.Show(idList[1].ToString());
+            // 作成済みのクラスをすべて表示
+            AllShow(db);
 
         }
 
     }
 
     /// <summary>
-    /// クラス生成処理
+    /// 全てのクラスをデータベースから表示する
     /// </summary>
-    /// <returns></returns>
-    private Class ClassGenerationProcess(string className, List<Field> fieldList, List<Method> methodList) 
+    /// <param name="db"></param>
+    private void AllShow(Classes db)
     {
-        var classModel = new ClassModel();
-        return classModel.CreateClass(className, fieldList, methodList);
-    }
-
-
-    /// <summary>
-    /// フィールド生成処理
-    /// </summary>
-    /// <returns></returns>
-    private Field FieldGenerationProcess() 
-    {
-        // フィールドモデルのインスタンス化
-        var fieldModel = _model.CreateFieldModel();
-
-        // アクセス修飾子  => accessType
-        _view.Show(fieldModel.GetInputAccessor());
-        var accessTypeSelectNumber = _view.SelectNumber(fieldModel.GetFieldAccessorSelection());
-
-        // 型　　　　　　  => dataType
-        _view.Show(fieldModel.GetInputType());
-        var dataTypeSelectNumber = _view.SelectNumber(fieldModel.GetFieldTypeSelection());
-
-        // フィールド名    => fieldName
-        _view.Show(fieldModel.GetInputFieldName());
-        var fieldName = _view.GetMessege();
-
-        // フィールドを生成 => createdField
-        return fieldModel.CreateField(accessTypeSelectNumber, dataTypeSelectNumber, fieldName);
-    }
-
-    /// <summary>
-    /// メソッド生成処理
-    /// </summary>
-    /// <returns></returns>
-    private Method MethodGenerationProcess()
-    {
-        // メソッドモデルのインスタンス化
-        var methodModel = _model.CreateMethodModel();
-
-        // アクセス修飾子 => accessType
-        _view.Show(methodModel.GetInputAccessor());
-        var methodAccessTypeSelectNumber = _view.SelectNumber(methodModel.GetMethodAccessorSelection());
-
-        // 型　　　　　　 => dataType
-        _view.Show(methodModel.GetInputType());
-        var methodDataTypeSelectNumber = _view.SelectNumber(methodModel.GetMethodDataTypeSelection());
-
-        // メソッド名   => methodName
-        _view.Show(methodModel.GetInputMethodName());
-        var methodName = _view.GetMessege();
-
-        // 引数の個数 => argmentNumber
-        _view.Show(methodModel.GetInputArgumentNumber());
-        var argumentNumber = int.Parse(_view.GetMessege());
-
-        // 結果を保持するリスト
-        var methodArgumentList = new List<int>();
-
-        // 引数の型 => Listに追加していく
-        for (int i = 0; i < argumentNumber; i++)
+        var classNameList = db.ClassDataBase.Select(row => row.ClassName);
+        foreach (var nClass in classNameList)
         {
-            _view.Show(methodModel.GetInputArgumentType());
-            methodArgumentList.Add(_view.SelectNumber(methodModel.GetArgumentTypeSelection()));
-        }
+            // クラス名表示
+            _view.Show(nClass+"\n");
+            _view.Show("----------------------------------------------------------\n");
 
-        // メソッドを生成 => createdField
-        return methodModel.CreateMethod(methodAccessTypeSelectNumber, methodDataTypeSelectNumber, methodName, methodArgumentList);
+            // クラスに追加されているフィールドを検索
+            foreach (var field in db.FieldDataBase.Where(row => row.ClassData.ClassName == nClass).ToList())
+            {
+                _view.Show($"{field.AccessType} {field.DataType} {field.FieldName}\n");
+            }
+            _view.Show("----------------------------------------------------------\n");
+
+            // クラスに追加されているメソッドを検索
+            foreach (var method in db.MethodDataBase.Where(row => row.ClassData.ClassName == nClass).ToList())
+            {
+                _view.Show($"{method.AccessType} {method.DataType} {method.MethodName}");
+                _view.Show("( ");
+
+                // メソッドの引き数を検索
+                foreach (var hiki in db.ArgumentTypeListDataBase.Where(row => row.MethodData.MethodName == method.MethodName).ToList())
+                {
+                    _view.Show($"{hiki.MethodArgumentType} ");
+                }
+                _view.Show(") \n");
+            }
+
+            _view.Show("\n");
+        }
     }
+
+
+
 
 
     /*-----------------------------------------------------------------------------------------------------------------------------*/
@@ -215,7 +126,7 @@ class Control
         }
     }
 
-    internal Model Model
+    internal CommonModel Model
     {
         get => default;
         set
@@ -224,6 +135,14 @@ class Control
     }
 
     internal Classes Classes
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    internal Model Model1
     {
         get => default;
         set

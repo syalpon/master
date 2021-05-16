@@ -5,7 +5,7 @@ using System.Linq;
 /// <summary>
 /// モデルの中でもメソッドを扱う処理群クラス
 /// </summary>
-class MethodModel : Model
+class MethodModel : CommonModel
 {
     internal Method Method
     {
@@ -19,7 +19,7 @@ class MethodModel : Model
     /// アクセス修飾子の選択肢を返す
     /// </summary>
     /// <returns></returns>
-    public string[] GetMethodAccessorSelection()
+    private string[] GetMethodAccessorSelection()
     {
         return GetSelection<MethodAccessType>();
     }
@@ -28,7 +28,7 @@ class MethodModel : Model
     /// 型の選択肢を返す
     /// </summary>
     /// <returns></returns>
-    public string[] GetMethodDataTypeSelection()
+    private string[] GetMethodDataTypeSelection()
     {
         return GetSelection<MethodDataType>();
     }
@@ -37,7 +37,7 @@ class MethodModel : Model
     /// 引数の選択肢を返す
     /// </summary>
     /// <returns></returns>
-    public string[] GetArgumentTypeSelection()
+    private string[] GetArgumentTypeSelection()
     {
         return GetSelection<MethodArgumentType>();
     }
@@ -91,4 +91,49 @@ class MethodModel : Model
         return new Method((MethodAccessType)accessTypeSelectNumber, (MethodDataType) methodDataTypeSelectNumber, methodName, methodArgumentList);
     }
 
+    /// <summary>
+    /// メソッド生成処理
+    /// </summary>
+    /// <returns></returns>
+    public Method MethodGenerationProcess()
+    {
+        // アクセス修飾子 => accessType
+        View.Display(this.GetInputAccessor());
+        var methodAccessTypeSelectNumber = _view.SelectNumber(this.GetMethodAccessorSelection());
+
+        // 型　　　　　　 => dataType
+        View.Display(this.GetInputType());
+        var methodDataTypeSelectNumber = _view.SelectNumber(this.GetMethodDataTypeSelection());
+
+        // メソッド名   => methodName
+        View.Display(this.GetInputMethodName());
+        var methodName = _view.GetMessege();
+
+        // 引数の個数 => argmentNumber
+        View.Display(this.GetInputArgumentNumber());
+        var argumentNumber = int.Parse(_view.GetMessege());
+
+        // 結果を保持するリスト
+        var methodArgumentList = new List<int>();
+
+        // 引数の型 => Listに追加していく
+        for (int i = 0; i < argumentNumber; i++)
+        {
+            View.Display(this.GetInputArgumentType());
+            methodArgumentList.Add(_view.SelectNumber(this.GetArgumentTypeSelection()));
+        }
+
+        // メソッドを生成 => createdField
+        return this.CreateMethod(methodAccessTypeSelectNumber, methodDataTypeSelectNumber, methodName, methodArgumentList);
+    }
+
+    /// <summary>
+    /// クラスにメソッドを追加する処理
+    /// </summary>
+    /// <param name="field"></param>
+    /// <param name="c"></param>
+    public void AddToClass(Method field,Class c)
+    {
+        c.MethodList.Add(field);
+    }
 }

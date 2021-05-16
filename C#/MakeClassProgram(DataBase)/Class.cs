@@ -6,84 +6,19 @@ using System.Linq;
 /// </summary>
 class Class
 {
-    /*フィールド*/
-    private string _className;
-    List<Field> _fieldList;
-    List<Method> _methodList;
+    /*プロパティ*/
+    public string ClassName { get;  set; }
+    public List<Field> FieldList  { get; set; }
+    public List<Method> MethodList { get;  set; }
 
     /// <summary>
     /// コンストラクタ
     /// </summary>
     /// <param name="className"></param>
-    public Class(string className, List<Field> fieldList, List<Method> methodList)
+    public Class(string className)
     {
-        _className = className;
-        _fieldList  = fieldList;  
-        _methodList = methodList; 
+        ClassName = className;
+        FieldList = new List<Field>();
+        MethodList = new List<Method>(); 
     }
-
-    /// <summary>
-    /// Fieldを追加するメソッド
-    /// </summary>
-    /// <param name="field"></param>
-    public void AddField(Field field)
-    {
-        _fieldList.Add(field);
-    }
-
-    /// <summary>
-    /// Methodを追加するメソッド
-    /// </summary>
-    /// <param name="method"></param>
-    public void AddMethod(Method method)
-    {
-        _methodList.Add(method);
-    }
-
-    /// <summary>
-    /// クラスネームの取得
-    /// </summary>
-    /// <returns></returns>
-    public string GetClassName()
-    {
-        return _className;
-    }
-
-    /// <summary>
-    /// 追加した最新フィールドを取得する
-    /// </summary>
-    /// <returns></returns>
-    public Field GetTheLastAddedField()
-    {
-        return _fieldList.Last();
-    }
-
-    /// <summary>
-    /// 追加した最新のメソッドを取得する
-    /// </summary>
-    /// <returns></returns>
-    public Method GetTheLastAddedMethod()
-    {
-        return _methodList.Last();
-    }
-
-    /// <summary>
-    /// 作成したフィールド全てを取得する
-    /// </summary>
-    /// <returns></returns>
-    public List<Field> GetAllFields()
-    {
-        return _fieldList;
-    }
-
-    /// <summary>
-    /// 作成したメソッド全てを取得する
-    /// </summary>
-    /// <returns></returns>
-    public List<Method> GetAllMethods()
-    {
-        return _methodList;
-    }
-
-
 }

@@ -10,6 +10,8 @@ class ArgumentData
     public int Id { get; set; }
     public string MethodArgumentType { get; set; }
 
+    public virtual MethodData MethodData { get; set; }
+
     /// <summary>
     /// コンストラクタ
     /// </summary>

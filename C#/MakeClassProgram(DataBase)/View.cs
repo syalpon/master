@@ -21,6 +21,18 @@ class View
         System.Console.Write(msg);
     }
 
+
+    /// <summary>
+    /// 外部から呼び出す為のshowメソッド
+    /// </summary>
+    /// <param name="msg"></param>
+    public static void Display(string msg)
+    {
+        System.Console.Write(msg);
+    }
+
+
+
     /// <summary>
     /// ユーザからの入力を受け取る
     /// </summary>
@@ -40,6 +52,7 @@ class View
     {
         string msg = "";
         int returnValue;
+
         while(true)
         {
             msg = System.Console.ReadLine();   
@@ -113,10 +126,10 @@ class View
             {"Internal"  ,"~"}
         };
 
-        this.Show(c.GetClassName());        
+        this.Show(c.ClassName);        
         this.Show("\n----------------\n");
 
-        foreach(Field field in c.GetAllFields())
+        foreach(Field field in c.FieldList)
         {
             // 追加したフィールドのアクセス修飾子
             this.Show(" " + symbol[Enum.GetName(typeof(FieldAccessType), field.GetAccessType())] + " ") ;
@@ -131,7 +144,7 @@ class View
 
         this.Show("----------------\n");
 
-        foreach (Method method in c.GetAllMethods())
+        foreach (Method method in c.MethodList)
         {
             // 追加したメソッドのアクセス修飾子
             this.Show(" " + symbol[Enum.GetName(typeof(MethodAccessType), method.GetAccessType())] + " ");
@@ -141,6 +154,7 @@ class View
 
             // 追加したメソッドの引数一覧
             var listLength = method.GetArgumentTypeList().Count();
+
             for (int i = 0; i < listLength - 1; i++)
             {
                 this.Show(Enum.GetName(typeof(MethodArgumentType), (method.GetArgumentTypeList()[i]).GetMethodArgumentType()) + ",");
@@ -239,7 +253,6 @@ class View
         System.Console.Write("0.終了\n>");
 
         return this.GetNumberOnly(0, index - 1);
-
     }
 
     /// <summary>

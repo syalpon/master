@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Class.cs" />
     <Compile Include="ClassModel.cs" />
-    <Compile Include="ClassCreater.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="Argument.cs" />
     <Compile Include="DB\ArgumentData.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Method.cs" />
     <Compile Include="MethodDefinition.cs" />
     <Compile Include="MethodModel.cs" />
+    <Compile Include="CommonModel.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View.cs" />
