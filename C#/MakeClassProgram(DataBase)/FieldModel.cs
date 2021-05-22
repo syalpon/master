@@ -79,6 +79,6 @@ class FieldModel : CommonModel
     /// <param name="c"></param>
     public void AddToClass(Field field,Class c)
     {
-        c.FieldList.Add(field);
+        c.AddFieldList(field);
     }
 }

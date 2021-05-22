@@ -13,9 +13,10 @@
   <Class Name="Class" Collapsed="true">
     <Position X="29.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <HashCode>AAAAAAAAAACAIIAAAAAAAAAAAAAAIAAAAAAAAAQgQAA=</HashCode>
       <FileName>Class.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ArgumentData" Collapsed="true">
     <Position X="24.5" Y="9" Width="1.5" />
@@ -118,9 +119,10 @@
   <Class Name="CommonModel" Collapsed="true">
     <Position X="25.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAIAAAAAACBAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAIAIAAAAABAAAQgAAA=</HashCode>
       <FileName>CommonModel.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="View" Collapsed="true">
     <Position X="13" Y="2.75" Width="1.5" />

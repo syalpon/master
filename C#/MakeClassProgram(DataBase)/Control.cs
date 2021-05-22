@@ -1,3 +1,4 @@
+using MakeClassProgram_DataBase_;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -47,6 +48,10 @@ class Control
                 }
 
                 var createClass = _model.CreateClass(className);
+
+                // 監視
+                new ClassHasElementDisplay(createClass);
+                new ClassDisplay(createClass);
 
                 while(true)
                 {

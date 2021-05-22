@@ -132,8 +132,8 @@ class MethodModel : CommonModel
     /// </summary>
     /// <param name="field"></param>
     /// <param name="c"></param>
-    public void AddToClass(Method field,Class c)
+    public void AddToClass(Method method,Class c)
     {
-        c.MethodList.Add(field);
+        c.AddMethodList(method);
     }
 }

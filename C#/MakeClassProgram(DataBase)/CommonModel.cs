@@ -1,3 +1,4 @@
+using MakeClassProgram_DataBase_;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 class CommonModel
 {
     protected View _view;
+    private List<IObserver> _observers;
 
     /// <summary>
     /// コンストラクタ
@@ -14,6 +16,7 @@ class CommonModel
     public CommonModel()
     {
         _view = new View();
+         _observers = new List<IObserver>();
     }
 
     /// <summary>
@@ -49,4 +52,6 @@ class CommonModel
     {
         return "型名を選択してください。\n";
     }
+
+   
 }

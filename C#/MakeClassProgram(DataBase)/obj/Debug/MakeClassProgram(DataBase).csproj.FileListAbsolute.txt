@@ -22,3 +22,15 @@ C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase)\o
 C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).csproj.CopyComplete
 C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).exe
 C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase)\obj\Debug\MakeClassProgram(DataBase).pdb
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\obj\Debug\MakeClassProgram(DataBase).csprojAssemblyReference.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\obj\Debug\MakeClassProgram(DataBase).csproj.CoreCompileInputs.cache
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\obj\Debug\MakeClassProgram(DataBase).exe
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\obj\Debug\MakeClassProgram(DataBase).pdb
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\MakeClassProgram(DataBase).exe.config
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\MakeClassProgram(DataBase).exe
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\MakeClassProgram(DataBase).pdb
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\EntityFramework.dll
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\EntityFramework.xml
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\細見 匠弥\workspace\project1\master\C#\MakeClassProgram(DataBase) - コピー\obj\Debug\MakeClassProgram(DataBase).csproj.CopyComplete

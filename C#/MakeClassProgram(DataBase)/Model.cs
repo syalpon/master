@@ -1,5 +1,8 @@
 ﻿
 
+using MakeClassProgram_DataBase_;
+using System.Collections.Generic;
+
 class Model
 { 
     /// <summary>
@@ -49,7 +52,6 @@ class Model
                 var fieldModel = new FieldModel();
                 var field = fieldModel.FieldGenerationProcess();
                 fieldModel.AddToClass(field, createClass);
-
                 break;
 
             // メソッド
@@ -57,7 +59,6 @@ class Model
                 var methodModel = new MethodModel();
                 var method = methodModel.MethodGenerationProcess();
                 methodModel.AddToClass(method, createClass);
-
                 break;
 
             // その他
